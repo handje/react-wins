@@ -1,5 +1,6 @@
 import BoxScoreInfo from "@components/Game/BoxScore/BoxScoreInfo";
 import MainTable from "@components/Game/BoxScore/MainTable";
+import LocationTitle from "@components/Location/LocationTitle";
 import PlayerTable from "@components/Player/PlayerTable";
 import { FilterGameBatterType, FilterGamePitcherType } from "@customTypes/boxScore";
 import { gameBatterHeaders, gamePitcherHeaders } from "@data/gameHeaders";
@@ -7,7 +8,6 @@ import { filterGameBatterData, filterGamePitcherData } from "@utils/filterBoxSco
 import { useBoxScoreQuery } from "hooks/useBoxScore";
 import { useGameStore } from "store/actions/useGameStore";
 import styled from "styled-components";
-import LocationTitle from "../components/Location/LocationTitle";
 
 const BoxScoreWrapper = styled.div`
   width: 100%;

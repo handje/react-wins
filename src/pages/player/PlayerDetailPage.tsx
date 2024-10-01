@@ -4,7 +4,7 @@ import { PlayerContentsWrapper } from "@styles/PlayerTable.style";
 import { usePlayerDetailQuery } from "hooks/usePlayer";
 import { useLocation, useParams } from "react-router-dom";
 
-const CatcherDetail = () => {
+const PlayerDetailPage = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const { playerType } = useParams();
@@ -21,4 +21,4 @@ const CatcherDetail = () => {
     </>
   );
 };
-export default CatcherDetail;
+export default PlayerDetailPage;

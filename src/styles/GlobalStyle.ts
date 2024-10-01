@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Noto Sans KR', sans-serif;
         font-optical-sizing: auto;
         font-style: normal;
+        overflow-y: scroll;
     }
     ol, ul, li{
         list-style: none;

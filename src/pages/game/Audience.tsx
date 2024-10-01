@@ -1,7 +1,7 @@
+import AccrueAudience from "@components/Audience/AccrueAudience.tsx";
 import AudieunceRecord from "@components/Audience/AudienceRecord";
 import RankingTab from "@components/common/RankingTab.tsx";
 import styled from "styled-components";
-import AccrueAudience from "../components/Audience/AccrueAudience.tsx";
 
 const AudienceWrapper = styled.div`
   width: 100%;

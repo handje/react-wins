@@ -4,7 +4,7 @@ import { usePlayerListQuery } from "hooks/usePlayer";
 import { useParams } from "react-router-dom";
 import { usePlayerStore } from "store/actions/usePlayerStore";
 
-const Catcher = () => {
+const PlayerPage = () => {
   const playerList = usePlayerStore((state) => state.playerList);
   const { playerType } = useParams();
 
@@ -31,4 +31,4 @@ const Catcher = () => {
     </>
   );
 };
-export default Catcher;
+export default PlayerPage;

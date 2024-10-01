@@ -1,6 +1,4 @@
-import Article from "@components/Home/Article";
 import ScrollToTop from "@components/ScrollToTop";
-import TopButton from "@components/common/TopButton";
 import Footer from "@components/ui/footer/Footer";
 import Header from "@components/ui/header/Header";
 import { Outlet } from "react-router-dom";
@@ -13,26 +11,14 @@ const BasicLayoutStyle = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
-const MainStyle = styled.main`
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 50px;
-  margin: 145px 0;
-`;
-
-const BasicLayout = () => {
+const RootLayout = () => {
   return (
     <BasicLayoutStyle>
       <ScrollToTop />
       <Header />
-      <Article />
-      <MainStyle>
-        <Outlet />
-        <TopButton />
-      </MainStyle>
+      <Outlet />
       <Footer />
     </BasicLayoutStyle>
   );
 };
-export default BasicLayout;
+export default RootLayout;

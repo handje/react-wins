@@ -1,5 +1,6 @@
 import CheerProfile from "@components/Cheer/CheerProfile";
 import { TCheer } from "@customTypes/cheer";
+import { api } from "api/api";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import "swiper/css";
@@ -9,7 +10,6 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper/types";
-import { api } from "../api/api.ts";
 
 const Container = styled.div`
   height: 620px;
@@ -59,7 +59,7 @@ const StyledButton = styled(Swiper)`
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    display: flex;s
+    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 16px;
