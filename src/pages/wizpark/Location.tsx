@@ -1,6 +1,7 @@
 import KakaoMap from "@components/Location/KakaoMap";
 import LocationGuide from "@components/Location/LocationGuide";
 import LocationTitle from "@components/Location/LocationTitle";
+import PageLayout from "layouts/PageLayout";
 import styled from "styled-components";
 
 export const LocationWrapper = styled.div`
@@ -8,9 +9,14 @@ export const LocationWrapper = styled.div`
   width: 100%;
 `;
 
+const locationInfo = {
+  title: "찾아오기",
+  desc: "오시는 길을 상세하게 알려드립니다.",
+};
+
 const Location = () => {
   return (
-    <>
+    <PageLayout info={locationInfo}>
       <LocationWrapper>
         <LocationTitle title="오시는 길" />
         <KakaoMap lat={37.29972304} lng={127.00975851} location={"수원 KT 위즈 파크"} />
@@ -32,7 +38,7 @@ const Location = () => {
           ]}
         />
       </LocationWrapper>
-    </>
+    </PageLayout>
   );
 };
 export default Location;

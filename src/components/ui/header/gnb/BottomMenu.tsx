@@ -38,7 +38,7 @@ const BottomMenu = () => {
           </li>
           <li>구단 BI</li>
           <li>
-            <Link to="/ktwiz/policy">회원 정책</Link>
+            <Link to="/ktwiz/policy/regular">회원 정책</Link>
           </li>
           <li>월페이퍼</li>
         </ul>

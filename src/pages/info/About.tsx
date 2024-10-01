@@ -53,19 +53,22 @@ const About = () => {
       colorDesc: "그라운드 안팎에서 그 동안 없던 새로운 야구를 kt wiz가 이루어 가겠습니다.",
     },
   ];
+
   return (
-    <AboutStyle>
-      <img src={aboutImg1} alt="about image" />
-      {contentList.map((content, index) => (
-        <div key={index}>
-          <div>
-            <MainTitle title={content.title} />
-            <Description desc={content.desc} colorDesc={index === 3 ? content.colorDesc : ""} />
+    <>
+      <AboutStyle>
+        <img src={aboutImg1} alt="about image" />
+        {contentList.map((content, index) => (
+          <div key={index}>
+            <div>
+              <MainTitle title={content.title} />
+              <Description desc={content.desc} colorDesc={index === 3 ? content.colorDesc : ""} />
+            </div>
+            {content.img && <img src={content.img} alt="about image" />}
           </div>
-          {content.img && <img src={content.img} alt="about image" />}
-        </div>
-      ))}
-    </AboutStyle>
+        ))}
+      </AboutStyle>
+    </>
   );
 };
 export default About;

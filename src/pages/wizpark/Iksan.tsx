@@ -1,8 +1,9 @@
+import iksanImg from "@assets/images/iksan_img.png";
 import KakaoMap from "@components/Location/KakaoMap";
 import LocationGuide from "@components/Location/LocationGuide";
 import LocationTitle from "@components/Location/LocationTitle";
+import PageLayout from "layouts/PageLayout";
 import styled from "styled-components";
-import iksanImg from "../assets/images/iksan_img.png";
 import { LocationWrapper } from "./Location";
 
 const StateBox = styled.div`
@@ -12,9 +13,14 @@ const StateBox = styled.div`
   background-color: #f8f8f8;
 `;
 
+const iksanInfo = {
+  title: "익산야구장",
+  desc: "kt wiz의 둥지 '익산야구장'을 소개합니다.",
+};
+
 const Iksan = () => {
   return (
-    <>
+    <PageLayout info={iksanInfo}>
       <div>
         <LocationTitle title="퓨처스리그가 펼쳐지는 익산 야구장" />
         <img style={{ width: "100%" }} src={iksanImg} alt="익산 야구장 이미지" />
@@ -53,7 +59,7 @@ const Iksan = () => {
           ]}
         />
       </LocationWrapper>
-    </>
+    </PageLayout>
   );
 };
 export default Iksan;

@@ -1,83 +1,46 @@
-import About from "@pages/About";
-import Audience from "@pages/Audience.tsx";
-import BoxScore from "@pages/BoxScore";
-import Cheer from "@pages/Cheer.tsx";
-import Donation from "@pages/Donation";
-import Entrance from "@pages/Entrance";
 import Home from "@pages/Home";
-import Iksan from "@pages/Iksan";
-import Location from "@pages/Location";
-import News from "@pages/News";
-import NewsDetail from "@pages/NewsDetail";
-import PlayerDetailPage from "@pages/PlayerDetailPage";
-import PlayerPage from "@pages/PlayerPage";
-import Policy from "@pages/Policy";
-import Press from "@pages/Press";
-import PressDetail from "@pages/PressDetail";
-import Schedule from "@pages/Schedule";
-import Store from "@pages/Store";
-import TeamRanking from "@pages/TeamRanking";
-import WatchPoint from "@pages/WatchPoint";
-import WizParkGuide from "@pages/WizParkGuide";
-import WizParkIntro from "@pages/WizParkIntro.tsx";
-import BasicLayout from "layouts/BasicLayout";
-import CommonLayout from "layouts/CommonLayout";
+import { Audience, BoxScore, GameLayout, Schedule, TeamRanking, WatchPoint } from "@pages/game";
+import { About, InfoLayout } from "@pages/info";
+import { MediaLayout, News, NewsDetail, Press, PressDetail } from "@pages/media";
+import { Cheer, PlayerDetailPage, PlayerLayout, PlayerPage } from "@pages/player";
+import { Donation, Policy, PolicyLayout } from "@pages/policy";
+import { Entrance, SeatMap, Store, TicketLayout } from "@pages/ticket";
+import { Iksan, Location, WizParkIntro } from "@pages/wizpark";
+import RootLayout from "layouts/RootLayout";
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
   {
-    element: <BasicLayout />,
+    element: <RootLayout />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home />,
       },
-    ],
-  },
-  {
-    element: <CommonLayout />,
-    children: [
+
       {
         path: "/ktwiz",
         children: [
           {
-            path: "about",
-            element: <About />,
-          },
-          {
-            path: "history",
-            element: "연혁 component",
-          },
-          {
-            path: "bi",
+            element: <InfoLayout />,
             children: [
               {
-                path: "symbol",
-                element: "심볼마크 component",
+                path: "about",
+                element: <About />,
               },
               {
-                path: "wordmark",
-                element: "워드마크 component",
-              },
-              {
-                path: "emblem",
-                element: "엠블럼 component",
-              },
-              {
-                path: "mascot",
-                element: "마스코트 component",
-              },
-              {
-                path: "uniform",
-                element: "유니폼 component",
+                path: "history",
+                element: "연혁 component",
               },
             ],
           },
+
           {
             path: "policy",
+            element: <PolicyLayout />,
             children: [
               {
-                index: true,
+                path: "regular",
                 element: <Policy />,
               },
               {
@@ -85,14 +48,6 @@ export const router = createBrowserRouter([
                 element: <Donation />,
               },
             ],
-          },
-          {
-            path: "sponsor",
-            element: "스폰서 component",
-          },
-          {
-            path: "wallpaper",
-            element: "월페이퍼 component",
           },
         ],
       },
@@ -102,10 +57,6 @@ export const router = createBrowserRouter([
           {
             path: "intro",
             element: <WizParkIntro />,
-          },
-          {
-            path: "parking",
-            element: "주차예약 component",
           },
           {
             path: "location",
@@ -119,6 +70,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/game",
+        element: <GameLayout />,
         children: [
           {
             path: "schedule",
@@ -146,76 +98,19 @@ export const router = createBrowserRouter([
           },
         ],
       },
-      { path: "/player/:playerType", element: <PlayerPage /> },
-      { path: "/player/:playerType/detail", element: <PlayerDetailPage /> },
+
       {
         path: "/player",
+        element: <PlayerLayout />,
         children: [
-          // {
-          //   path: "coach",
-          //   children: [
-          //     {
-          //       index: true,
-          //       element: <Coach />,
-          //     },
-          //     {
-          //       path: "detail",
-          //       element: <CoachDetail />,
-          //     },
-          //   ],
-          // },
-          // {
-          //   path: "pitcher",
-          //   children: [
-          //     {
-          //       index: true,
-          //       element: <Pitcher />,
-          //     },
-          //     {
-          //       path: "detail",
-          //       element: <PitcherDetail />,
-          //     },
-          //   ],
-          // },
-          // {
-          //   path: "catcher",
-          //   children: [
-          //     {
-          //       index: true,
-          //       element: <Catcher />,
-          //     },
-          //     {
-          //       path: "detail",
-          //       element: <CatcherDetail />,
-          //     },
-          //   ],
-          // },
-          // {
-          //   path: "infielder",
-          //   children: [
-          //     {
-          //       index: true,
-          //       element: <Infielder />,
-          //     },
-          //     {
-          //       path: "detail",
-          //       element: <InfielderDetail />,
-          //     },
-          //   ],
-          // },
-          // {
-          //   path: "outfielder",
-          //   children: [
-          //     {
-          //       index: true,
-          //       element: <Outfielder />,
-          //     },
-          //     {
-          //       path: "detail",
-          //       element: <OutfielderDetail />,
-          //     },
-          //   ],
-          // },
+          {
+            path: ":playerType",
+            element: <PlayerPage />,
+          },
+          {
+            path: ":playerType/detail",
+            element: <PlayerDetailPage />,
+          },
           {
             path: "cheer",
             element: <Cheer />,
@@ -224,6 +119,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/media",
+        element: <MediaLayout />,
         children: [
           {
             path: "wiznews",
@@ -239,53 +135,18 @@ export const router = createBrowserRouter([
               { path: ":artcSeq", element: <PressDetail /> },
             ],
           },
-          {
-            path: "wizstory",
-            element: "wiz스토리 component",
-          },
-          {
-            path: "firstpitch",
-            element: "시구자 정보 component",
-          },
-          {
-            path: "wizphoto",
-            element: "wiz포토 component",
-          },
-          {
-            path: "highlight",
-            element: "하이라이트 component",
-          },
-          {
-            path: "live",
-            element: "live영상모음 component",
-          },
         ],
       },
       {
         path: "/ticket",
+        element: <TicketLayout />,
         children: [
           {
-            path: "reservation",
-            element: "티켓예매 component",
-          },
-          {
-            path: "price",
-            element: "입장요금 component",
-          },
-          {
-            path: "discount",
-            element: "할인혜택 component",
-          },
-          {
-            path: "group",
-            element: "단체관람안내 component",
-          },
-          {
             path: "seatmap",
-            element: <WizParkGuide />,
+            element: <SeatMap />,
           },
           {
-            path: "enterance",
+            path: "entrance",
             element: <Entrance />,
           },
           {

@@ -1,10 +1,10 @@
 import WPGuide from "@components/WizPark/WPGuide";
 
-const WizParkGuide = () => {
+const SeatMap = () => {
   return (
     <>
       <WPGuide />
     </>
   );
 };
-export default WizParkGuide;
+export default SeatMap;
