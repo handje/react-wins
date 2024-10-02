@@ -1,5 +1,5 @@
 import useDetectScroll from "hooks/useDetectScroll";
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Nav from "./gnb/Nav";
@@ -16,12 +16,12 @@ const HeaderStyle = styled.header<{ $isShowNav: boolean; $path: string; $scrollH
   justify-content: center;
   align-items: baseline;
   z-index: 2;
-  overflow-y: hidden;
+  overflow: hidden;
   background-color: ${(props) =>
     props.$isShowNav ? "#fff" : props.$path !== "/" ? "#000" : props.$scrollHeight > 100 ? "#000" : "transparent"};
   transition:
-    height 0.25s ease-in-out,
-    background-color 0.25s ease-in-out;
+    height 0.25s ease-in,
+    background-color 0.25s ease-out;
 `;
 
 const HeaderInnerStyle = styled.div<{ $isShowNav: boolean }>`
@@ -29,7 +29,7 @@ const HeaderInnerStyle = styled.div<{ $isShowNav: boolean }>`
   max-width: 1200px;
   display: flex;
   align-items: baseline;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 20px;
   &::after {
     content: "";
@@ -38,7 +38,7 @@ const HeaderInnerStyle = styled.div<{ $isShowNav: boolean }>`
     left: 0;
     width: 100%;
     height: 1px;
-    border-bottom: ${(props) => (props.$isShowNav ? "1px solid rgba(0, 0, 0, 0.1)" : "0")};
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -47,27 +47,13 @@ const Header = () => {
   const [$isShowNav, setIsShowNav] = useState(false);
   const { $scrollHeight } = useDetectScroll();
 
-  const debounce = useCallback((func: () => void, delay: number) => {
-    let timeoutId: NodeJS.Timeout;
-    return () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(func, delay);
-    };
-  }, []);
+  const onMouseOverHandler = () => {
+    setIsShowNav(true);
+  };
 
-  const onMouseOverHandler = useCallback(
-    debounce(() => {
-      setIsShowNav(true);
-    }, 60),
-    []
-  );
-
-  const onMouseOutHandler = useCallback(
-    debounce(() => {
-      setIsShowNav(false);
-    }, 60),
-    []
-  );
+  const onMouseOutHandler = () => {
+    setIsShowNav(false);
+  };
 
   return (
     <HeaderStyle
