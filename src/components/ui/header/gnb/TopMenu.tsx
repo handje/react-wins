@@ -1,5 +1,5 @@
 import { NavEventType } from "@customTypes/layout";
-import { topMenuList } from "@data/nav";
+import { topMenuList } from "@data/layout/nav";
 import { ulStyle } from "@styles/ui.style";
 import React from "react";
 import { NavLink } from "react-router-dom";
