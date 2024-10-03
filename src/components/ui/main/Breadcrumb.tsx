@@ -1,3 +1,4 @@
+import { ILayoutInfo } from "@customTypes/layout";
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { TiHome } from "react-icons/ti";
@@ -33,21 +34,28 @@ const BreadcumbStyle = styled.ul`
   }
 `;
 
-const Breadcrumb = () => {
+const Breadcrumb = ({ info }: { info: ILayoutInfo }) => {
   const { pathname } = useLocation();
-  const path = pathname.split("/").filter((el) => el);
-
+  const path = pathname.split("/");
+  const category = path[1].charAt(0).toUpperCase() + path[1].slice(1);
+  const pageName = info?.tabs?.find((el) => el.path === path[2]);
   return (
     <BreadcumbStyle>
       <li>
         <TiHome />
       </li>
-      {path.map((el, index) => (
-        <li key={index}>
-          <IoIosArrowForward />
-          <span>{el}</span>
-        </li>
-      ))}
+      <li>
+        <IoIosArrowForward />
+        <span>{category}</span>
+      </li>
+      <li>
+        <IoIosArrowForward />
+        <span>{info?.title}</span>
+      </li>
+      <li>
+        <IoIosArrowForward />
+        <span>{pageName?.name}</span>
+      </li>
     </BreadcumbStyle>
   );
 };
