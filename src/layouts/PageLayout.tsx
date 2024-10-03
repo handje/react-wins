@@ -85,7 +85,7 @@ const PageLayout = ({
       <MainStyle>
         <MainUtilsStyle>
           {hasSearch && <Search />}
-          <Breadcrumb />
+          <Breadcrumb info={info} />
         </MainUtilsStyle>
         <MainInnerStyle $hasPadding={hasPadding}>{children}</MainInnerStyle>
       </MainStyle>

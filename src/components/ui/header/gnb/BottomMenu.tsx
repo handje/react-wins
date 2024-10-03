@@ -1,38 +1,33 @@
+import { ulStyle } from "@styles/ui.style";
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const BottomMenuStyle = styled.ul`
-  display: contents;
+  ${ulStyle}
   & > li {
-    color: #000;
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
     line-height: 1.2;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
-    transition: font-weight 0.1s;
     padding-top: 20px;
-    & > ul {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-  }
-  & > li {
-    & > ul {
-      & > li:hover {
-        font-weight: 500;
-        transition: font-weight 0.1s;
-      }
-    }
   }
 `;
 
+const InnerMenu = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  & > li > a:hover {
+    font-weight: 700;
+  }
+`;
 const BottomMenu = () => {
   return (
     <BottomMenuStyle>
       <li>
-        <ul>
+        <InnerMenu>
           <li>
             <Link to="/ktwiz/about">kt wiz는?</Link>
           </li>
@@ -41,10 +36,10 @@ const BottomMenu = () => {
             <Link to="/ktwiz/policy/regular">회원 정책</Link>
           </li>
           <li>월페이퍼</li>
-        </ul>
+        </InnerMenu>
       </li>
       <li>
-        <ul>
+        <InnerMenu>
           <li>
             <Link to="/wizpark/intro">수원 kt wiz park</Link>
           </li>
@@ -55,18 +50,18 @@ const BottomMenu = () => {
           <li>
             <Link to="/wizpark/iksan">익산야구장</Link>
           </li>
-        </ul>
+        </InnerMenu>
       </li>
       <li>
-        <ul>
+        <InnerMenu>
           <li>
             <Link to="/game/schedule">정규리그</Link>
           </li>
           <li>퓨처스리그</li>
-        </ul>
+        </InnerMenu>
       </li>
       <li>
-        <ul>
+        <InnerMenu>
           <li>
             <Link to="/player/coach">코칭스텝</Link>
           </li>
@@ -81,10 +76,10 @@ const BottomMenu = () => {
           </li>
           <li>응원가</li>
           <li>응원가 저작권</li>
-        </ul>
+        </InnerMenu>
       </li>
       <li>
-        <ul>
+        <InnerMenu>
           <li>
             <Link to="/media/wiznews">wiz 뉴스</Link>
           </li>
@@ -93,18 +88,18 @@ const BottomMenu = () => {
           <li>wiz 포토</li>
           <li>하이라이트</li>
           <li>Live 영상모음</li>
-        </ul>
+        </InnerMenu>
       </li>
       <li></li>
       <li></li>
       <li>
-        <ul>
+        <InnerMenu>
           <li>티켓예매</li>
           <li>단체관람</li>
           <li>
             <Link to="/ticket/seatmap">입장 및 좌석 정보</Link>
           </li>
-        </ul>
+        </InnerMenu>
       </li>
     </BottomMenuStyle>
   );
