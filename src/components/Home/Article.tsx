@@ -13,6 +13,7 @@ const ArticleStyle = styled.article`
   height: 100vh;
   display: flex;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
   background-image: url(${homeBanner});
   background-size: cover;
   background-repeat: no-repeat;
