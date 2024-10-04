@@ -26,7 +26,7 @@ const ContainerStyle = styled(Link)<{
   min-height: 190px;
   background-image: ${({ $bgImage, $bgColor }) =>
     $bgImage ? `url(${$bgImage})` : $bgColor ? `linear-gradient(${$bgColor})` : "none"};
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.2);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
