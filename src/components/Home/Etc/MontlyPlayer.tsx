@@ -21,14 +21,14 @@ const MontlyPlayer = () => {
   const playerData = montlyPlyerData[0];
 
   return (
-    <Container to="player/infielder/detail?pcode=50054" target="_self" $bgImage={playerData.imgFilePath}>
+    <Container to="player/infielder/detail?pcode=50054" target="_self" $bgImage={playerData?.imgFilePath}>
       <MontlyPlayerStyle>
         <div>
           <Image src={whiteLogo} alt="logo" $maxWidth="81px" $marginBottom="5px" />
           <Text text="이달의 선수" $fontSize="15px" $fontWeight="200" $color="#fff" $opacity="0.8" />
         </div>
-        <Text text={`${playerData.num}`} $fontSize="53px" $fontWeight="300" $color="#f53232" />
-        <Text text={playerData.name} $fontSize="53px" $fontWeight="300" $color="#fff" />
+        <Text text={`${playerData?.num ?? ""}`} $fontSize="53px" $fontWeight="300" $color="#f53232" />
+        <Text text={playerData?.name} $fontSize="53px" $fontWeight="300" $color="#fff" />
       </MontlyPlayerStyle>
     </Container>
   );

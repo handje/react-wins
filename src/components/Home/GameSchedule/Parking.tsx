@@ -3,7 +3,6 @@ import Container from "../Common/Container";
 import Description from "../Common/Description";
 import Shortcut from "../Common/Shortcut";
 import Text from "../Common/Text";
-
 const ParkingStyle = styled.div`
   width: 100%;
   display: flex;
@@ -17,7 +16,7 @@ const Parking = () => {
   return (
     <Container
       to="wizpark/parking"
-      $bgImage="https://cdn.pixabay.com/photo/2016/08/02/15/47/baseball-1563851_1280.jpg"
+      $bgImage="https://www.ktwiz.co.kr/v2/imgs/dummy/main/img-banner-parking@2x.png"
       target="_self">
       <ParkingStyle>
         <Text text="수원 케이티 위즈 파크" $fontSize="13px" $fontWeight="700" $color="#f53232" $marginBottom="10px" />

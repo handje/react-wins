@@ -1,3 +1,4 @@
+import homeBanner from "@assets/images/home-banner.png";
 import { useEffect } from "react";
 import { useHomeStore } from "store/actions/useHomeStore";
 import styled from "styled-components";
@@ -12,7 +13,8 @@ const ArticleStyle = styled.article`
   height: 100vh;
   display: flex;
   justify-content: center;
-  background-image: url("https://www.ktwiz.co.kr/v2/imgs/dummy/main/2024_season_bg_web.png");
+  background-color: rgba(0, 0, 0, 0.2);
+  background-image: url(${homeBanner});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
