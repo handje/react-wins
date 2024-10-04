@@ -12,7 +12,7 @@ const VideoStyle = styled.div`
 const Video = () => {
   return (
     <VideoStyle>
-      <iframe src="https://tv.naver.com/embed/42663688?" loading="lazy" width="400" height="250" allowFullScreen />
+      <iframe src="https://tv.naver.com/embed/42663688?" loading="eager" width="400" height="250" allowFullScreen />
     </VideoStyle>
   );
 };

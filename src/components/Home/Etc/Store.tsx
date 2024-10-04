@@ -20,7 +20,7 @@ const Store = () => {
     <Container
       to="https://www.ktwizstore.co.kr/"
       target="_blank"
-      $bgImage="https://cdn.pixabay.com/photo/2019/05/06/03/45/baseball-4182179_1280.jpg">
+      $bgImage="https://www.ktwiz.co.kr/v2/imgs/dummy/main/img-banner-store@2x.png">
       <StoreStyle>
         <Image src={whiteLogo} alt="logo" $maxWidth="124px" $marginBottom="5px" />
         <Text $marginBottom="20px" $fontSize="20px" $fontWeight="300" $color="#fff" text="공식 온라인 스토어" />
