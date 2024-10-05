@@ -1,5 +1,11 @@
+import footerImg from "@assets/images/aboutImg4.png";
 import PageLayout from "layouts/PageLayout";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import styled from "styled-components";
+
+const FooterImage = styled.img`
+  width: 100vw;
+`;
 
 const aboutInfo = {
   title: "kt wiz는?",
@@ -11,10 +17,15 @@ const aboutInfo = {
 };
 
 const InfoLayout = () => {
+  const { pathname } = useLocation();
+  const hasFooterImg = pathname === "/ktwiz/about";
   return (
-    <PageLayout info={aboutInfo}>
-      <Outlet />
-    </PageLayout>
+    <>
+      <PageLayout info={aboutInfo}>
+        <Outlet />
+      </PageLayout>
+      {hasFooterImg && <FooterImage src={footerImg} />}
+    </>
   );
 };
 export default InfoLayout;
