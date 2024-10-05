@@ -17,7 +17,7 @@ const MainStyle = styled.main`
   align-items: center;
 `;
 
-const MainUtilsStyle = styled.section`
+const MainUtilsStyle = styled.nav`
   width: 100%;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@ const MainUtilsStyle = styled.section`
   border-bottom: 2px solid #ec0a0b;
 `;
 
-const MainInnerStyle = styled.section<{ $hasPadding: boolean }>`
+const MainInnerStyle = styled.article<{ $hasPadding: boolean }>`
   padding-top: ${({ $hasPadding }) => ($hasPadding ? "40px" : "0px")};
   width: 100%;
   height: 100%;
