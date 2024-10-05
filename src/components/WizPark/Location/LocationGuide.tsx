@@ -1,4 +1,4 @@
-import { TLocationGuide } from "@customTypes/locationGuide";
+import { TLocationGuide } from "@customTypes/park";
 import { FaBus, FaSubway } from "react-icons/fa";
 import { ImLocation2 } from "react-icons/im";
 import styled from "styled-components";
@@ -59,7 +59,7 @@ const LocationBtn = styled.a`
   text-decoration: none;
 `;
 
-const LocationGuide = ({ address1, address2, href, busList, subway }: TLocationGuide) => {
+const LocationGuide = ({ newAddress, address, url, busList, subway }: TLocationGuide) => {
   return (
     <>
       <GuideWrapper>
@@ -71,10 +71,10 @@ const LocationGuide = ({ address1, address2, href, busList, subway }: TLocationG
             </GuideTh>
             <GuideTd>
               <ul>
-                <GuideLi>{address1}</GuideLi>
-                <GuideLi>{address2}</GuideLi>
+                <GuideLi>{newAddress}</GuideLi>
+                <GuideLi>{address}</GuideLi>
                 <GuideLi>
-                  <LocationBtn href={href} target="_blank" rel="noopener noreferrer">
+                  <LocationBtn href={url} target="_blank" rel="noopener noreferrer">
                     찾아오기
                   </LocationBtn>
                 </GuideLi>

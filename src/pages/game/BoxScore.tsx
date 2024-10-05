@@ -1,6 +1,6 @@
+import ArticleTitle from "@components/common/ArticleTitle";
 import BoxScoreInfo from "@components/Game/BoxScore/BoxScoreInfo";
 import MainTable from "@components/Game/BoxScore/MainTable";
-import LocationTitle from "@components/Location/LocationTitle";
 import PlayerTable from "@components/Player/PlayerTable";
 import { FilterGameBatterType, FilterGamePitcherType } from "@customTypes/boxScore";
 import { gameBatterHeaders, gamePitcherHeaders } from "@data/gameHeaders";
@@ -39,29 +39,29 @@ const BoxScore = () => {
       <BoxScoreWrapper>
         <BoxScoreInfo />
         <ArticleWrapper>
-          <LocationTitle title="주요 기록" />
+          <ArticleTitle title="주요 기록" />
           <MainTable />
         </ArticleWrapper>
         <ArticleWrapper>
-          <LocationTitle title={`${schedule ? schedule.current.visit : ""} 타자 기록`} />
+          <ArticleTitle title={`${schedule ? schedule.current.visit : ""} 타자 기록`} />
           {filteredVBatters && (
             <PlayerTable<FilterGameBatterType> resData={filteredVBatters} headers={gameBatterHeaders} />
           )}
         </ArticleWrapper>
         <ArticleWrapper>
-          <LocationTitle title={`${schedule ? schedule.current.home : ""} 타자 기록`} />
+          <ArticleTitle title={`${schedule ? schedule.current.home : ""} 타자 기록`} />
           {filteredHBatters && (
             <PlayerTable<FilterGameBatterType> resData={filteredHBatters} headers={gameBatterHeaders} />
           )}
         </ArticleWrapper>
         <ArticleWrapper>
-          <LocationTitle title={`${schedule ? schedule.current.visit : ""} 투수 기록`} />
+          <ArticleTitle title={`${schedule ? schedule.current.visit : ""} 투수 기록`} />
           {filteredVPitchers && (
             <PlayerTable<FilterGamePitcherType> resData={filteredVPitchers} headers={gamePitcherHeaders} />
           )}
         </ArticleWrapper>
         <ArticleWrapper>
-          <LocationTitle title={`${schedule ? schedule.current.home : ""} 투수 기록`} />
+          <ArticleTitle title={`${schedule ? schedule.current.home : ""} 투수 기록`} />
           {filteredHPitchers && (
             <PlayerTable<FilterGamePitcherType> resData={filteredHPitchers} headers={gamePitcherHeaders} />
           )}

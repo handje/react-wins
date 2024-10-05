@@ -1,11 +1,12 @@
 import img from "@assets/icons/historyIcon.png";
-import { TKakaoMapp } from "@customTypes/kakaomap";
+import iksanMap from "@assets/images/iksan_map.png";
+import locationMap from "@assets/images/map_img.png";
+import { TKakaoMap } from "@customTypes/park";
+
 import React from "react";
 import { Map, MapMarker, useKakaoLoader } from "react-kakao-maps-sdk";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import iksanMap from "../../assets/images/iksan_map.png";
-import locationMap from "../../assets/images/map_img.png";
 
 const Overlay = styled.div`
   background-color: white;
@@ -20,7 +21,8 @@ const Overlay = styled.div`
 `;
 
 declare const __KAKAOMAP_APP_KEY__: string;
-const KakaoMap = ({ lat, lng, location }: TKakaoMapp) => {
+const KakaoMap = ({ position, name }: TKakaoMap) => {
+  const { lat, lng } = position;
   const [loading, error] = useKakaoLoader({
     appkey: __KAKAOMAP_APP_KEY__, // 발급 받은 APPKEY, .env에서 가져옴
   });
@@ -42,7 +44,7 @@ const KakaoMap = ({ lat, lng, location }: TKakaoMapp) => {
               height: 45,
             },
           }}>
-          <Overlay>{location}</Overlay>
+          <Overlay>{name}</Overlay>
         </MapMarker>
       </Map>
     </>
