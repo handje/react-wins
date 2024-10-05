@@ -6,33 +6,6 @@ import { ILayoutInfo } from "@customTypes/layout";
 import { ReactNode } from "react";
 import styled from "styled-components";
 
-const MainStyle = styled.main`
-  width: 100%;
-  max-width: 1100px;
-  padding-top: 80px;
-  padding-bottom: 100px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const MainUtilsStyle = styled.nav`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding-bottom: 15px;
-  border-bottom: 2px solid #ec0a0b;
-`;
-
-const MainInnerStyle = styled.article<{ $hasPadding: boolean }>`
-  padding-top: ${({ $hasPadding }) => ($hasPadding ? "40px" : "0px")};
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 const BannerStyle = styled.section`
   position: relative;
   width: 100%;
@@ -63,6 +36,33 @@ const BannerStyle = styled.section`
       font-weight: 300;
     }
   }
+`;
+
+const MainStyle = styled.main`
+  width: 100%;
+  max-width: 1100px;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const MainUtilsStyle = styled.nav`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #ec0a0b;
+`;
+
+const MainInnerStyle = styled.article<{ $hasPadding: boolean }>`
+  padding-top: ${({ $hasPadding }) => ($hasPadding ? "40px" : "0px")};
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const PageLayout = ({
