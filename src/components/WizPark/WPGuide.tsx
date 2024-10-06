@@ -1,6 +1,20 @@
 import WP_Title from "@assets/images/WP_Title.png";
 import WP_seat from "@assets/images/WP_seat.png";
-import { DescImg, TitleDiv, TitleImg } from "../../styles/WizParkGuide.style";
+import styled from "styled-components";
+
+const TitleImg = styled.img`
+  width: 342px;
+  height: 61px;
+`;
+
+const TitleDiv = styled.div`
+  text-align: center;
+  margin-bottom: 30px;
+`;
+
+const DescImg = styled.img`
+  width: 100%;
+`;
 
 const WizParkGuide = () => {
   return (

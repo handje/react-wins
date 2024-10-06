@@ -3,7 +3,7 @@ import BoxScoreInfo from "@components/Game/BoxScore/BoxScoreInfo";
 import MainTable from "@components/Game/BoxScore/MainTable";
 import PlayerTable from "@components/Player/PlayerTable";
 import { FilterGameBatterType, FilterGamePitcherType } from "@customTypes/boxScore";
-import { gameBatterHeaders, gamePitcherHeaders } from "@data/gameHeaders";
+import { gameBatterHeaders, gamePitcherHeaders } from "@data/game/boxScoreHeaders";
 import { filterGameBatterData, filterGamePitcherData } from "@utils/filterBoxScoreData";
 import { useBoxScoreQuery } from "hooks/useBoxScore";
 import { useGameStore } from "store/actions/useGameStore";

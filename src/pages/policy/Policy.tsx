@@ -1,5 +1,5 @@
 import ArticleTitle from "@components/common/ArticleTitle";
-import { FullContentImage } from "@styles/wiz.style";
+import { FullContentImage } from "@styles/common.style";
 
 const Policy = () => {
   return (

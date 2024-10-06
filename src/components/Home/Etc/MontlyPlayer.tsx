@@ -1,5 +1,5 @@
 import whiteLogo from "@assets/images/whiteLogo.svg";
-import montlyPlyerData from "@data/montlyPlayer.json";
+import montlyPlayer from "@data/home/montlyPlayer.json";
 import styled from "styled-components";
 import Container from "../Common/Container";
 import Image from "../Common/Image";
@@ -18,7 +18,7 @@ const MontlyPlayerStyle = styled.div`
 `;
 
 const MontlyPlayer = () => {
-  const playerData = montlyPlyerData[0];
+  const playerData = montlyPlayer[0];
 
   return (
     <Container to="player/infielder/detail?pcode=50054" target="_self" $bgImage={playerData?.imgFilePath}>

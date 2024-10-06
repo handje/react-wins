@@ -1,6 +1,6 @@
 import WP_STA from "@assets/images/WP_STA.jpg";
 import { contentList } from "@data/wiz/intro";
-import { ContentBanner, ContentTitle, DescStyle } from "@styles/wiz.style";
+import { ContentBanner, ContentTitle, DescStyle } from "@styles/common.style";
 import styled from "styled-components";
 
 const SubTitle = styled.h6`
