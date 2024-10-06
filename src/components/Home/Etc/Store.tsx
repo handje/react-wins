@@ -1,10 +1,10 @@
 import whiteLogo from "@assets/images/whiteLogo.svg";
+import Container from "@components/Home/Common/Container";
+import Description from "@components/Home/Common/Description";
+import Image from "@components/Home/Common/Image";
+import Shortcut from "@components/Home/Common/Shortcut";
+import Text from "@components/Home/Common/Text";
 import styled from "styled-components";
-import Container from "../Common/Container";
-import Description from "../Common/Description";
-import Image from "../Common/Image";
-import Shortcut from "../Common/Shortcut";
-import Text from "../Common/Text";
 
 const StoreStyle = styled.div`
   display: flex;

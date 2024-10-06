@@ -1,8 +1,8 @@
+import Container from "@components/Home/Common/Container";
+import Description from "@components/Home/Common/Description";
+import Shortcut from "@components/Home/Common/Shortcut";
+import Text from "@components/Home/Common/Text";
 import styled from "styled-components";
-import Container from "../Common/Container";
-import Description from "../Common/Description";
-import Shortcut from "../Common/Shortcut";
-import Text from "../Common/Text";
 const ParkingStyle = styled.div`
   width: 100%;
   display: flex;

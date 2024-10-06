@@ -1,8 +1,8 @@
-import ArticleTitle from "@components/common/ArticleTitle";
+import { api } from "@api/api";
 import Table from "@components/common/Table";
 import { TPicheringRank } from "@customTypes/teamRank";
+import { ArticleTitle } from "@styles/common.style";
 import { filterData } from "@utils/filterData";
-import { api } from "api/api";
 import { useEffect, useState } from "react";
 
 export const teamRankingHeaders: [string, string][] = [
@@ -36,7 +36,7 @@ const RecordPicher = () => {
 
   return (
     <article>
-      <ArticleTitle title="2024 시즌 팀 투수 기록" />
+      <ArticleTitle>{"2024 시즌 팀 투수 기록"}</ArticleTitle>
       {pitchers.length > 0 && (
         <Table<TPicheringRank> resData={pitchers} headers={teamRankingHeaders.map((item) => item[1])} />
       )}

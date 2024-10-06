@@ -1,8 +1,8 @@
-import ArticleTitle from "@components/common/ArticleTitle";
+import { api } from "@api/api";
 import { Tcrowd } from "@customTypes/Crowd";
+import { ArticleTitle } from "@styles/common.style.ts";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { api } from "../../api/api.ts";
 
 const TableWrapper = styled.div`
   max-width: 1200px;
@@ -67,7 +67,7 @@ const AudienceRecord = () => {
   return (
     <>
       <StyledArticle>
-        <ArticleTitle title="2024 시즌 관중기록" />
+        <ArticleTitle>{"2024 시즌 관중기록"}</ArticleTitle>
         <TableWrapper>
           <Table>
             <TableHeader>

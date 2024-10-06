@@ -1,6 +1,6 @@
 import aboutImg1 from "@assets/images/aboutImg1.png";
 import { contentList } from "@data/wiz/about";
-import { ContentBanner, ContentTitle, DescStyle } from "@styles/wiz.style";
+import { ContentBanner, ContentTitle, DescStyle } from "@styles/common.style";
 
 import styled from "styled-components";
 

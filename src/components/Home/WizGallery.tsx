@@ -1,6 +1,6 @@
+import { api } from "@api/api";
 import Controller from "@components/common/Controller";
 import { TPhoto } from "@customTypes/gallery";
-import { api } from "api/api";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import GallerySwiper from "./WizGallery/GallerySwiper";

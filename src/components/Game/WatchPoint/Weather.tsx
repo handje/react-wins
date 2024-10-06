@@ -1,6 +1,6 @@
+import { ArticleTitle } from "@styles/common.style";
 import styled from "styled-components";
 import Description from "./Description";
-import Title from "./Title";
 
 const WeatherStyle = styled.div`
   width: 100%;
@@ -11,7 +11,7 @@ const WeatherStyle = styled.div`
 const Weather = () => {
   return (
     <WeatherStyle>
-      <Title title="홈구장 날씨" $marginBottom="20px;" />
+      <ArticleTitle>{"홈구장 날씨"}</ArticleTitle>
       <Description isWeather />
     </WeatherStyle>
   );

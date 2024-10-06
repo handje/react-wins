@@ -1,6 +1,6 @@
+import { api } from "@api/api";
 import CheerProfile from "@components/Cheer/CheerProfile";
 import { TCheer } from "@customTypes/cheer";
-import { api } from "api/api";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import "swiper/css";

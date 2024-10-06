@@ -1,6 +1,6 @@
-import ArticleTitle from "@components/common/ArticleTitle";
+import { api } from "@api/api";
+import { ArticleTitle } from "@styles/common.style";
 import { chartDate } from "@utils/date";
-import { api } from "api/api";
 import ReactEcharts from "echarts-for-react";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -80,7 +80,7 @@ const RankingChart = () => {
   };
   return (
     <article>
-      <ArticleTitle title="2024 시즌 팀 순위" />
+      <ArticleTitle>{"2024 시즌 팀 순위"}</ArticleTitle>
       <StyledChart option={options} style={{ width: "100%", height: "400px" }} opts={{ renderer: "svg" }} />
     </article>
   );

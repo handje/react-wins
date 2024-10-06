@@ -1,4 +1,4 @@
-import { api } from "api/api";
+import { api } from "@api/api";
 import { HomeStoreType } from "store/types/homeStore";
 import { create } from "zustand";
 
