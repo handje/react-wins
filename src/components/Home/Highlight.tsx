@@ -1,10 +1,10 @@
+import { api } from "@api/api";
 import video_title from "@assets/images/home_title_video.png";
 import Controller from "@components/Home/Video/Controller";
 import VideoList from "@components/Home/Video/VideoList";
 import VideoBox from "@components/Home/Video/ViedoBox";
 import { TVideo } from "@customTypes/highlight";
 import { StyledSection } from "@styles/Home.style";
-import { api } from "api/api";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 

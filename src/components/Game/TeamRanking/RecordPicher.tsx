@@ -1,8 +1,8 @@
+import { api } from "@api/api";
 import Table from "@components/common/Table";
 import { TPicheringRank } from "@customTypes/teamRank";
 import { ArticleTitle } from "@styles/common.style";
 import { filterData } from "@utils/filterData";
-import { api } from "api/api";
 import { useEffect, useState } from "react";
 
 export const teamRankingHeaders: [string, string][] = [

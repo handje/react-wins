@@ -1,6 +1,6 @@
+import { api } from "@api/api";
 import MediaDetail from "@components/Media/MediaDetail";
 import { TMedia } from "@customTypes/media";
-import { api } from "api/api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 

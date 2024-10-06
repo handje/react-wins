@@ -1,8 +1,8 @@
+import { api } from "@api/api";
 import { Tcrowd } from "@customTypes/Crowd";
 import { ArticleTitle } from "@styles/common.style.ts";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { api } from "../../api/api.ts";
 
 const TableWrapper = styled.div`
   max-width: 1200px;

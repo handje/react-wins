@@ -1,6 +1,6 @@
+import { api } from "@api/api";
 import { ArticleTitle } from "@styles/common.style";
 import { chartDate } from "@utils/date";
-import { api } from "api/api";
 import ReactEcharts from "echarts-for-react";
 import { useEffect, useState } from "react";
 import styled from "styled-components";

@@ -1,6 +1,6 @@
+import Logo from "@components/Game/Common/Logo";
 import { useWatchPointStore } from "store/actions/useWatchPointStore";
 import styled from "styled-components";
-import Logo from "../../Common/Logo";
 import Table from "./Table";
 
 const BodyStyle = styled.div`
