@@ -8,7 +8,7 @@ const MediaList = ({ mediaList }: { mediaList: TMedia[] }) => {
     <>
       <MediaContainer>
         <ul>
-          {mediaList.map((media) => (
+          {mediaList?.map((media) => (
             <li key={media.artcSeq}>
               <MediaItem media={media} />
             </li>
