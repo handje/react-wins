@@ -1,4 +1,4 @@
-import ArticleTitle from "@components/common/ArticleTitle";
+import { ArticleTitle } from "@styles/common.style.ts";
 import ReactECharts from "echarts-for-react";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -75,7 +75,7 @@ const AccrueAudience = () => {
 
   return (
     <StyledArticle>
-      <ArticleTitle title="2024 시즌 누적관중" />
+      <ArticleTitle>{"2024 시즌 누적관중"}</ArticleTitle>
       <div style={{ border: "1px solid black", width: "100%", height: "350px" }}>
         <ReactECharts option={options} style={{ width: "100%", height: "300px" }} opts={{ renderer: "svg" }} />
       </div>

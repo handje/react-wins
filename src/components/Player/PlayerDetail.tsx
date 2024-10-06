@@ -1,4 +1,4 @@
-import ArticleTitle from "@components/common/ArticleTitle";
+import { ArticleTitle } from "@styles/common.style";
 import { useState } from "react";
 import styled from "styled-components";
 import PlayerTableInfo from "./PlayerTableInfo";
@@ -68,7 +68,7 @@ const PlayerDetail = ({ playerType }: { playerType: string }) => {
         </ul>
       </DetailMenuWrapper>
       <div style={{ marginTop: "40px" }}>
-        <ArticleTitle title={title} />
+        <ArticleTitle>{title}</ArticleTitle>
       </div>
       <PlayerTableInfo isPitcher={playerType === "pitcher"} menu={menu} />
     </>

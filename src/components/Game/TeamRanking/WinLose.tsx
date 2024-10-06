@@ -1,5 +1,5 @@
-import ArticleTitle from "@components/common/ArticleTitle";
 import { TTeamVS } from "@customTypes/teamRank";
+import { ArticleTitle } from "@styles/common.style";
 import { getVSinfo } from "@utils/filterData";
 import { api } from "api/api";
 import { useEffect, useState } from "react";
@@ -68,7 +68,7 @@ const WinLose = () => {
 
   return (
     <article>
-      <ArticleTitle title="2024 시즌 팀 간 승패표" />
+      <ArticleTitle>{"2024 시즌 팀 간 승패표"}</ArticleTitle>
       <StyledTable>
         <thead>
           <StyledTr>

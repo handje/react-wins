@@ -1,6 +1,6 @@
+import { ArticleTitle } from "@styles/common.style";
 import styled from "styled-components";
 import Table from "./Pitcher/Table";
-import Title from "./Title";
 
 const PitcherStyle = styled.div`
   width: 100%;
@@ -11,7 +11,7 @@ const PitcherStyle = styled.div`
 const Pitcher = () => {
   return (
     <PitcherStyle>
-      <Title title="선발투수 비교" $marginBottom="10px;" />
+      <ArticleTitle>{"선발투수 비교"}</ArticleTitle>
       <Table />
     </PitcherStyle>
   );

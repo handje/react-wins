@@ -1,9 +1,9 @@
-import ArticleTitle from "@components/common/ArticleTitle";
 import BoxScoreInfo from "@components/Game/BoxScore/BoxScoreInfo";
 import MainTable from "@components/Game/BoxScore/MainTable";
 import PlayerTable from "@components/Player/PlayerTable";
 import { FilterGameBatterType, FilterGamePitcherType } from "@customTypes/boxScore";
 import { gameBatterHeaders, gamePitcherHeaders } from "@data/game/boxScoreHeaders";
+import { ArticleTitle } from "@styles/common.style";
 import { filterGameBatterData, filterGamePitcherData } from "@utils/filterBoxScoreData";
 import { useBoxScoreQuery } from "hooks/useBoxScore";
 import { useGameStore } from "store/actions/useGameStore";
@@ -39,29 +39,30 @@ const BoxScore = () => {
       <BoxScoreWrapper>
         <BoxScoreInfo />
         <ArticleWrapper>
-          <ArticleTitle title="주요 기록" />
+          <ArticleTitle>{"주요 기록"}</ArticleTitle>
           <MainTable />
         </ArticleWrapper>
         <ArticleWrapper>
-          <ArticleTitle title={`${schedule ? schedule.current.visit : ""} 타자 기록`} />
+          <ArticleTitle>{`${schedule ? schedule.current.visit : ""} 타자 기록`}</ArticleTitle>
           {filteredVBatters && (
             <PlayerTable<FilterGameBatterType> resData={filteredVBatters} headers={gameBatterHeaders} />
           )}
         </ArticleWrapper>
         <ArticleWrapper>
-          <ArticleTitle title={`${schedule ? schedule.current.home : ""} 타자 기록`} />
+          <ArticleTitle>{`${schedule ? schedule.current.home : ""} 타자 기록`}</ArticleTitle>
+
           {filteredHBatters && (
             <PlayerTable<FilterGameBatterType> resData={filteredHBatters} headers={gameBatterHeaders} />
           )}
         </ArticleWrapper>
         <ArticleWrapper>
-          <ArticleTitle title={`${schedule ? schedule.current.visit : ""} 투수 기록`} />
+          <ArticleTitle>{`${schedule ? schedule.current.visit : ""} 투수 기록`}</ArticleTitle>
           {filteredVPitchers && (
             <PlayerTable<FilterGamePitcherType> resData={filteredVPitchers} headers={gamePitcherHeaders} />
           )}
         </ArticleWrapper>
         <ArticleWrapper>
-          <ArticleTitle title={`${schedule ? schedule.current.home : ""} 투수 기록`} />
+          <ArticleTitle>{`${schedule ? schedule.current.home : ""} 투수 기록`}</ArticleTitle>
           {filteredHPitchers && (
             <PlayerTable<FilterGamePitcherType> resData={filteredHPitchers} headers={gamePitcherHeaders} />
           )}

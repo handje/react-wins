@@ -1,6 +1,6 @@
-import ArticleTitle from "@components/common/ArticleTitle";
 import Table from "@components/common/Table";
 import { TBattingRank } from "@customTypes/teamRank";
+import { ArticleTitle } from "@styles/common.style";
 import { filterData } from "@utils/filterData";
 import { api } from "api/api";
 import { useEffect, useState } from "react";
@@ -38,7 +38,7 @@ const RecordBatter = () => {
 
   return (
     <article>
-      <ArticleTitle title="2024 시즌 팀 타자 기록" />
+      <ArticleTitle>{"2024 시즌 팀 타자 기록"}</ArticleTitle>
       {batters.length > 0 && (
         <Table<TBattingRank> resData={batters} headers={teamRankingHeaders.map((item) => item[1])} />
       )}

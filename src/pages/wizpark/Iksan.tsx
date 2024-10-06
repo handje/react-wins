@@ -1,7 +1,7 @@
 import iksanImg from "@assets/images/iksan_img.png";
-import ArticleTitle from "@components/common/ArticleTitle";
 import GuideContent from "@components/WizPark/Location/GuideContent";
 import { IksanInfo } from "@data/wiz/location";
+import { ArticleTitle } from "@styles/common.style";
 import PageLayout from "layouts/PageLayout";
 import styled from "styled-components";
 
@@ -21,7 +21,7 @@ const Iksan = () => {
   return (
     <PageLayout info={iksanInfo}>
       <div>
-        <ArticleTitle title="퓨처스리그가 펼쳐지는 익산 야구장" />
+        <ArticleTitle>{"퓨처스리그가 펼쳐지는 익산 야구장"}</ArticleTitle>
         <img style={{ width: "100%" }} src={iksanImg} alt="익산 야구장 이미지" />
         <StateBox>
           <p>
@@ -32,7 +32,7 @@ const Iksan = () => {
         </StateBox>
       </div>
       <section>
-        <ArticleTitle title="오시는 길" />
+        <ArticleTitle>{"오시는 길"}</ArticleTitle>
         <GuideContent guideInfo={IksanInfo} />
       </section>
     </PageLayout>
