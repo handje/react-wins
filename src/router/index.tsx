@@ -2,7 +2,8 @@ import ErrorPage from "@components/fallback/ErrorPage";
 import Home from "@pages/Home";
 import { Audience, BoxScore, GameLayout, Schedule, TeamRanking, WatchPoint } from "@pages/game";
 import { About, InfoLayout } from "@pages/info";
-import { MediaLayout, News, NewsDetail, Press, PressDetail } from "@pages/media";
+import { MediaLayout, NewsDetail } from "@pages/media";
+import MediaListPage from "@pages/media/MediaListPage";
 import { Cheer, PlayerDetailPage, PlayerLayout, PlayerPage } from "@pages/player";
 import { Donation, Policy, PolicyLayout } from "@pages/policy";
 import { Entrance, SeatMap, Store, TicketLayout } from "@pages/ticket";
@@ -124,18 +125,9 @@ export const router = createBrowserRouter([
         element: <MediaLayout />,
         children: [
           {
-            path: "wiznews",
-            children: [
-              { index: true, element: <News /> },
-              { path: ":artcSeq", element: <NewsDetail /> },
-            ],
-          },
-          {
-            path: "wizpress",
-            children: [
-              { index: true, element: <Press /> },
-              { path: ":artcSeq", element: <PressDetail /> },
-            ],
+            path: ":mediaType",
+            element: <MediaListPage />,
+            children: [{ path: ":artcSeq", element: <NewsDetail /> }],
           },
         ],
       },

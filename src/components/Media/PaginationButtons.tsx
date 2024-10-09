@@ -5,7 +5,7 @@ import {
   MdKeyboardDoubleArrowLeft,
   MdKeyboardDoubleArrowRight,
 } from "react-icons/md";
-import { useSearchParams } from "react-router-dom";
+import { useMediaStore } from "store/actions/useMediaStore";
 import styled from "styled-components";
 
 const PagenationWrapper = styled.nav`
@@ -29,47 +29,42 @@ const PageButton = styled.button<{ $isSelected?: boolean }>`
 `;
 
 const PaginationButtons = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
   const [pageGroup, setPageGroup] = useState(0);
-  const [selectedNum, setSelectedNum] = useState(1);
   const PAGE_COUNT = 10;
   const MAX_PAGE = 116;
   const maxGroup = Math.floor(MAX_PAGE / PAGE_COUNT);
+  const pageNum = useMediaStore((state) => state.pageNum);
+  const setPageNum = useMediaStore((state) => state.setPageNum);
 
   useEffect(() => {
-    const currentPage = searchParams.get("search.page") || "1";
-    setPageGroup(Math.floor(Number(currentPage) / PAGE_COUNT));
-    setSelectedNum(Number(currentPage));
+    setPageGroup(Math.floor(Number(pageNum) / PAGE_COUNT));
   }, []);
-  useEffect(() => {
-    setSearchParams({ "search.page": `${selectedNum}` });
-  }, [selectedNum]);
 
-  const handlePageChange = (pageNum: number) => {
-    setSelectedNum(pageNum);
+  const handlePageChange = (pageNumber: number) => {
+    setPageNum(pageNumber);
   };
   const handlePageGroupPrev = () => {
     if (pageGroup === 0) return;
     setPageGroup((prev) => prev - 1);
-    setSelectedNum((prev) => prev - PAGE_COUNT);
+    setPageNum(pageNum - PAGE_COUNT);
   };
   const handlePageGroupNext = () => {
     if (pageGroup === maxGroup) return;
     setPageGroup((prev) => prev + 1);
-    setSelectedNum((prev) => prev + PAGE_COUNT);
+    setPageNum(pageNum + PAGE_COUNT);
   };
   const handlePageFirst = () => {
     setPageGroup(0);
-    setSelectedNum(1);
+    setPageNum(1);
   };
   const handlePageLast = () => {
     setPageGroup(maxGroup);
-    setSelectedNum(MAX_PAGE);
+    setPageNum(MAX_PAGE);
   };
 
   return (
     <PagenationWrapper>
-      {selectedNum !== 1 && (
+      {pageNum !== 1 && (
         <PageButton onClick={handlePageFirst}>
           <MdKeyboardDoubleArrowLeft>처음</MdKeyboardDoubleArrowLeft>
         </PageButton>
@@ -83,10 +78,7 @@ const PaginationButtons = () => {
         const pageNumber = pageGroup * PAGE_COUNT + index + 1;
         if (pageNumber <= MAX_PAGE) {
           return (
-            <PageButton
-              key={index}
-              $isSelected={pageNumber === selectedNum}
-              onClick={() => handlePageChange(pageNumber)}>
+            <PageButton key={index} $isSelected={pageNumber === pageNum} onClick={() => handlePageChange(pageNumber)}>
               {pageNumber}
             </PageButton>
           );
@@ -97,7 +89,7 @@ const PaginationButtons = () => {
           <MdKeyboardArrowRight>다음</MdKeyboardArrowRight>
         </PageButton>
       )}
-      {selectedNum !== MAX_PAGE && (
+      {pageNum !== MAX_PAGE && (
         <PageButton onClick={handlePageLast}>
           <MdKeyboardDoubleArrowRight>마지막</MdKeyboardDoubleArrowRight>
         </PageButton>
