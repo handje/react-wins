@@ -4,6 +4,8 @@ export type MediaStoreType = {
   mediaList: TMedia[];
   media: TMedia | undefined;
   pageNum: number;
+  isListLoading: boolean;
+  isDetailLoading: boolean;
   resetPageNum: () => void;
   setPageNum: (num: number) => void;
   setMediaList: (url: string) => void;
