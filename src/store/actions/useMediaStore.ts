@@ -15,6 +15,6 @@ export const useMediaStore = create<MediaStoreType>((set) => ({
   },
   setMedia: async (url) => {
     const { data } = await api(url);
-    data && set({ media: data.list });
+    data && set({ media: data.article });
   },
 }));
