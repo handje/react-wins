@@ -1,4 +1,5 @@
 import MediaList from "@components/Media/MediaList";
+import SkeletonList from "@components/Media/SkeletonList";
 import { useEffect } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useMediaStore } from "store/actions/useMediaStore";
@@ -10,6 +11,7 @@ const MediaListPage = () => {
   const resetPageNum = useMediaStore((state) => state.resetPageNum);
   const mediaList = useMediaStore((state) => state.mediaList);
   const setMediaList = useMediaStore((state) => state.setMediaList);
+  const isLoading = useMediaStore((state) => state.isListLoading);
 
   let url;
   if (mediaType === "wiznews") {
@@ -28,10 +30,6 @@ const MediaListPage = () => {
     resetPageNum();
   }, [mediaType]);
 
-  return (
-    <>
-      <MediaList mediaList={mediaList} />
-    </>
-  );
+  return <>{isLoading ? <SkeletonList /> : <MediaList mediaList={mediaList} />}</>;
 };
 export default MediaListPage;

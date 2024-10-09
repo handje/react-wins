@@ -6,15 +6,26 @@ export const useMediaStore = create<MediaStoreType>((set) => ({
   mediaList: [],
   media: undefined,
   pageNum: 1,
-
+  isListLoading: false,
+  isDetailLoading: false,
   setPageNum: (num) => set({ pageNum: num }),
   resetPageNum: () => set({ pageNum: 1 }),
   setMediaList: async (url) => {
-    const { data } = await api(url);
-    data && set({ mediaList: data.list });
+    try {
+      set({ isListLoading: true });
+      const { data } = await api(url);
+      data && set({ mediaList: data.list });
+    } finally {
+      set({ isListLoading: false });
+    }
   },
   setMedia: async (url) => {
-    const { data } = await api(url);
-    data && set({ media: data.article });
+    try {
+      set({ isDetailLoading: true });
+      const { data } = await api(url);
+      data && set({ media: data.list });
+    } finally {
+      set({ isDetailLoading: false });
+    }
   },
 }));
