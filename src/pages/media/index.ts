@@ -1,5 +1,5 @@
+import MediaDetailPage from "./MediaDetailPage";
 import MediaLayout from "./MediaLayout";
-import NewsDetail from "./NewsDetail";
-import PressDetail from "./PressDetail";
+import MediaListPage from "./MediaListPage";
 
-export { MediaLayout, NewsDetail, PressDetail };
+export { MediaDetailPage, MediaLayout, MediaListPage };
