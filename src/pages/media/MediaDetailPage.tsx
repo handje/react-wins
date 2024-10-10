@@ -7,6 +7,7 @@ const MediaDetailPage = () => {
   const { mediaType, artcSeq } = useParams();
   const media = useMediaStore((state) => state.media);
   const setMedia = useMediaStore((state) => state.setMedia);
+  const setArtcSeq = useMediaStore((state) => state.setArtcSeq);
 
   let url;
   if (mediaType === "wiznews") {
@@ -19,6 +20,12 @@ const MediaDetailPage = () => {
     setMedia(url);
     window.scrollTo(0, 0);
   }, [url]);
+
+  useEffect(() => {
+    if (media) {
+      setArtcSeq(media.artcPrevSeq, media.artcNextSeq);
+    }
+  }, [media]);
 
   return (
     <>
