@@ -1,3 +1,4 @@
+import ErrorPage from "@components/fallback/ErrorPage";
 import Home from "@pages/Home";
 import { Audience, BoxScore, GameLayout, Schedule, TeamRanking, WatchPoint } from "@pages/game";
 import { About, InfoLayout } from "@pages/info";
@@ -12,6 +13,7 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 export const router = createBrowserRouter([
   {
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,

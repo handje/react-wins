@@ -6,6 +6,8 @@ export type MediaStoreType = {
   pageNum: number;
   artcPrevSeq: number | undefined;
   artcNextSeq: number | undefined;
+  isListLoading: boolean;
+  isDetailLoading: boolean;
   resetPageNum: () => void;
   setPageNum: (num: number) => void;
   setMediaList: (url: string) => void;

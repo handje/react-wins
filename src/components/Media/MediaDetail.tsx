@@ -28,6 +28,7 @@ const MainContent = styled.section`
 `;
 
 const MediaDetail = ({ media }: { media: TMedia | undefined }) => {
+  console.log(media);
   return (
     <>
       <MediaContainer>
