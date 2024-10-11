@@ -22,9 +22,13 @@ const ContentHeader = styled.section`
 
 const MainContent = styled.section`
   padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 const MediaDetail = ({ media }: { media: TMedia | undefined }) => {
+  console.log(media);
   return (
     <>
       <MediaContainer>

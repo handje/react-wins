@@ -8,6 +8,7 @@ const MediaDetailPage = () => {
   const { mediaType, artcSeq } = useParams();
   const media = useMediaStore((state) => state.media);
   const setMedia = useMediaStore((state) => state.setMedia);
+  const setArtcSeq = useMediaStore((state) => state.setArtcSeq);
   const isLoading = useMediaStore((state) => state.isDetailLoading);
   let url;
   if (mediaType === "wiznews") {
@@ -19,7 +20,13 @@ const MediaDetailPage = () => {
   useEffect(() => {
     setMedia(url);
     window.scrollTo(0, 0);
-  }, [url]);
+  }, [mediaType, url]);
+
+  useEffect(() => {
+    if (media) {
+      setArtcSeq(media.artcPrevSeq, media.artcNextSeq);
+    }
+  }, [media]);
 
   return <>{isLoading ? <SkeletonDetail /> : <MediaDetail media={media} />}</>;
 };

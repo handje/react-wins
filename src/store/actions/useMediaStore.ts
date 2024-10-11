@@ -6,6 +6,9 @@ export const useMediaStore = create<MediaStoreType>((set) => ({
   mediaList: [],
   media: undefined,
   pageNum: 1,
+  artcSeq: undefined,
+  artcNextSeq: undefined,
+  artcPrevSeq: undefined,
   isListLoading: false,
   isDetailLoading: false,
   setPageNum: (num) => set({ pageNum: num }),
@@ -23,9 +26,10 @@ export const useMediaStore = create<MediaStoreType>((set) => ({
     try {
       set({ isDetailLoading: true });
       const { data } = await api(url);
-      data && set({ media: data.list });
+      data && set({ media: data.article });
     } finally {
       set({ isDetailLoading: false });
     }
   },
+  setArtcSeq: (prev, next) => set({ artcPrevSeq: prev, artcNextSeq: next }),
 }));
