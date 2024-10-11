@@ -1,9 +1,9 @@
-import mascot from "@assets/images/mascot.png";
 import Container from "@components/Home/Common/Container";
 import Text from "@components/Home/Common/Text";
 import { useEffect } from "react";
 import { useHomeStore } from "store/actions/useHomeStore";
 import styled from "styled-components";
+import mascot from "/mascot.png";
 
 const TeamRankingStyle = styled.div`
   height: 100%;
