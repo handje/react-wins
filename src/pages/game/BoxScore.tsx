@@ -1,6 +1,7 @@
 import BoxScoreInfo from "@components/Game/BoxScore/BoxScoreInfo";
 import MainTable from "@components/Game/BoxScore/MainTable";
 import PlayerTable from "@components/Player/PlayerTable";
+import Loading from "@components/fallback/Loading";
 import { FilterGameBatterType, FilterGamePitcherType } from "@customTypes/boxScore";
 import { gameBatterHeaders, gamePitcherHeaders } from "@data/game/boxScoreHeaders";
 import { ArticleTitle } from "@styles/common.style";
@@ -27,7 +28,8 @@ const BoxScore = () => {
 
   const { isError, isLoading } = useBoxScoreQuery(daySchedule?.gameDate, daySchedule?.gmkey);
 
-  if (isError || (!schedule && isLoading)) return <></>;
+  if (isLoading) return <Loading />;
+  if (isError) return <></>;
 
   const filteredHBatters: FilterGameBatterType[] | undefined = hBatters?.map(filterGameBatterData);
   const filteredHPitchers: FilterGamePitcherType[] | undefined = hPitchers?.map(filterGamePitcherData);
