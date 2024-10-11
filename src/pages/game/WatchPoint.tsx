@@ -3,6 +3,7 @@ import Lineup from "@components/Game/WatchPoint/Lineup";
 import Pitcher from "@components/Game/WatchPoint/Pitcher";
 import Record from "@components/Game/WatchPoint/Record";
 import Weather from "@components/Game/WatchPoint/Weather";
+import Loading from "@components/fallback/Loading";
 
 import { useEffect } from "react";
 import { useHomeStore } from "store/actions/useHomeStore";
@@ -30,7 +31,7 @@ const WatchPoint = () => {
   const gameScore = useWatchPointStore((state) => state.gameScore);
   const schedule = useWatchPointStore((state) => state.schedule);
   const data = useHomeStore((state) => state.data);
-
+  const isLoading = useWatchPointStore((state) => state.isLoading);
   useEffect(() => {
     fetchDaySchedule();
   }, []);
@@ -49,8 +50,9 @@ const WatchPoint = () => {
     }
   }, [data?.current]);
 
-  if (!schedule && !gameScore) return null;
-  if (!data) return null;
+  if (isLoading) return <Loading />;
+  if (!schedule && !gameScore) return <></>;
+  if (!data) return <></>;
 
   return (
     <WatchPointStyle>
