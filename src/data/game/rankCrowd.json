@@ -2,62 +2,62 @@
   "data": {
     "list": [
       {
-        "crowd": 1281420,
-        "game": 68,
+        "crowd": 1397499,
+        "game": 73,
         "teamCode": "LG",
         "teamName": "LG"
       },
       {
-        "crowd": 1275022,
-        "game": 70,
+        "crowd": 1347022,
+        "game": 73,
         "teamCode": "SS",
         "teamName": "삼성"
       },
       {
-        "crowd": 1209715,
-        "game": 67,
+        "crowd": 1301768,
+        "game": 71,
         "teamCode": "OB",
         "teamName": "두산"
       },
       {
-        "crowd": 1177249,
-        "game": 69,
+        "crowd": 1259249,
+        "game": 73,
         "teamCode": "HT",
         "teamName": "KIA"
       },
       {
-        "crowd": 1111813,
-        "game": 65,
+        "crowd": 1232840,
+        "game": 71,
         "teamCode": "LT",
         "teamName": "롯데"
       },
       {
-        "crowd": 1063014,
-        "game": 67,
+        "crowd": 1143773,
+        "game": 71,
         "teamCode": "SK",
         "teamName": "SSG"
       },
       {
-        "crowd": 781318,
+        "crowd": 843942,
         "game": 71,
-        "teamCode": "WO",
-        "teamName": "키움"
-      },
-      {
-        "crowd": 745797,
-        "game": 66,
-        "teamCode": "HH",
-        "teamName": "한화"
-      },
-      {
-        "crowd": 736943,
-        "game": 64,
         "teamCode": "KT",
         "teamName": "KT"
       },
       {
-        "crowd": 676061,
-        "game": 66,
+        "crowd": 808350,
+        "game": 73,
+        "teamCode": "WO",
+        "teamName": "키움"
+      },
+      {
+        "crowd": 804204,
+        "game": 71,
+        "teamCode": "HH",
+        "teamName": "한화"
+      },
+      {
+        "crowd": 749058,
+        "game": 73,
         "teamCode": "NC",
         "teamName": "NC"
       }
