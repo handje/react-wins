@@ -1,4 +1,5 @@
 import PlayerCard from "@components/Player/PlayerCard";
+import ListSkeleton from "@components/fallback/player/ListSkeleton";
 import { PlayerContentsWrapper } from "@styles/PlayerTable.style";
 import { usePlayerListQuery } from "hooks/usePlayer";
 import { useParams } from "react-router-dom";
@@ -15,18 +16,22 @@ const PlayerPage = () => {
   return (
     <>
       <PlayerContentsWrapper>
-        <ul>
-          {playerList &&
-            playerList.map((data) => (
-              <PlayerCard
-                key={data.pcode}
-                playerName={data.playerName}
-                playerNum={data.backnum}
-                imgSrc={data.playerPrvwImg}
-                href={`/player/${playerType}/detail?pcode=${data.pcode}`}
-              />
-            ))}
-        </ul>
+        {isLoading ? (
+          <ListSkeleton />
+        ) : (
+          <ul>
+            {playerList &&
+              playerList.map((data) => (
+                <PlayerCard
+                  key={data.pcode}
+                  playerName={data.playerName}
+                  playerNum={data.backnum}
+                  imgSrc={data.playerPrvwImg}
+                  href={`/player/${playerType}/detail?pcode=${data.pcode}`}
+                />
+              ))}
+          </ul>
+        )}
       </PlayerContentsWrapper>
     </>
   );
