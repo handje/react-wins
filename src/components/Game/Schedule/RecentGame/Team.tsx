@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Logo from "./Common/Logo";
-import Text from "./Common/Text";
+import Logo from "../Common/Logo";
+import Text from "../Common/Text";
 
 interface TeamProps {
   home?: string | undefined;

@@ -1,6 +1,6 @@
 import ControllBtn from "@components/Game/Common/ControllButton";
 import Logo from "@components/Game/Common/Logo";
-import { FilterScoreboardType } from "@customTypes/boxScore";
+import { FilterScoreboardType } from "@customTypes/game/boxScore";
 import { stringDate } from "@utils/date";
 import { filterScoreboardData } from "@utils/filterBoxScoreData";
 import { GrNext, GrPrevious } from "react-icons/gr";

@@ -1,4 +1,10 @@
-import { EtcGames, GameBattersType, GamePitchersType, ScheduleListType, ScoreboardType } from "@customTypes/boxScore";
+import {
+  EtcGames,
+  GameBattersType,
+  GamePitchersType,
+  ScheduleListType,
+  ScoreboardType,
+} from "@customTypes/game/boxScore";
 
 export type GameStoreType = {
   daySchedule: { gameDate: string; gmkey: string } | null;

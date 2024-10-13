@@ -1,6 +1,6 @@
 import { api } from "@api/api";
 import Table from "@components/common/Table";
-import { TBattingRank } from "@customTypes/teamRank";
+import { TBattingRank } from "@customTypes/game/teamRank";
 import { ArticleTitle } from "@styles/common.style";
 import { filterData } from "@utils/filterData";
 import { useEffect, useState } from "react";

@@ -1,4 +1,4 @@
-import { TTeamVS } from "@customTypes/teamRank";
+import { TTeamVS } from "@customTypes/game/teamRank";
 
 export const filterData = <T extends Record<string, string | number>>(rawData: T, headers: [string, string][]) => {
   const filteredData = headers.reduce((acc: Record<string, string | number>, curr) => {

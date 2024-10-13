@@ -1,5 +1,5 @@
 import { api } from "@api/api";
-import { TTeamVS } from "@customTypes/teamRank";
+import { TTeamVS } from "@customTypes/game/teamRank";
 import { ArticleTitle } from "@styles/common.style";
 import { getVSinfo } from "@utils/filterData";
 import { useEffect, useState } from "react";

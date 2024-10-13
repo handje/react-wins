@@ -2,11 +2,11 @@ import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import { useScheduleStore } from "store/actions/useScheduleStore";
 import styled from "styled-components";
-import Cells from "./Calendar/Cells";
-import Days from "./Calendar/Days";
-import Header from "./Calendar/Header";
-import Result from "./Calendar/Result";
-import Tab from "./Calendar/Tab";
+import Cells from "./Cells";
+import Days from "./Days";
+import Header from "./Header";
+import Result from "./Result";
+import Tab from "./Tab";
 
 const CalendarStyle = styled.div`
   width: 100%;

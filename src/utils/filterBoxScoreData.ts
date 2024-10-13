@@ -5,7 +5,7 @@ import {
   GameBattersType,
   GamePitchersType,
   ScoreboardType,
-} from "@customTypes/boxScore";
+} from "@customTypes/game/boxScore";
 
 export function filterScoreboardData(data: ScoreboardType): FilterScoreboardType {
   return {
