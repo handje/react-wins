@@ -25,10 +25,9 @@ const ScheduleList = () => {
 
   return (
     <ScheduleListStyle>
-      {data &&
-        scheduleOrder.map((order, idx) => (
-          <ScheduleItem key={idx} data={data[order]} $isCurrent={order === "current"} />
-        ))}
+      {scheduleOrder.map((order, idx) => (
+        <ScheduleItem key={idx} data={data ? data[order] : null} $isCurrent={order === "current"} />
+      ))}
     </ScheduleListStyle>
   );
 };
