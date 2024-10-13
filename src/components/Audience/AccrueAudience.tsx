@@ -1,5 +1,5 @@
 import { api } from "@api/api";
-import { Tcrowd } from "@customTypes/Crowd";
+import { Tcrowd } from "@customTypes/game/Crowd";
 import { ArticleTitle } from "@styles/common.style.ts";
 import ReactECharts from "echarts-for-react";
 import { useEffect, useState } from "react";

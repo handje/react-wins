@@ -1,4 +1,4 @@
-import { ScheduleType, WholeScheduleType } from "@customTypes/schedule";
+import { ScheduleType, WholeScheduleType } from "@customTypes/game/schedule";
 
 export type ScheduleStoreType = {
   list: ScheduleType[] | [];

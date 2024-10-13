@@ -6,7 +6,7 @@ import {
   ScheduleType,
   TeamRankType,
   WeatherType,
-} from "@customTypes/watchPoint";
+} from "@customTypes/game/watchPoint";
 
 export type WatchPointStoreType = {
   gameScore: GameScoreType | null;

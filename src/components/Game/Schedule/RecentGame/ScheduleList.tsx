@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useHomeStore } from "store/actions/useHomeStore";
 import styled from "styled-components";
 import ScheduleItem from "./ScheduleItem";
@@ -11,10 +12,15 @@ const ScheduleListStyle = styled.ul`
 `;
 
 const ScheduleList = () => {
+  const fetchRecentGames = useHomeStore((state) => state.fetchRecentGames);
   const data = useHomeStore((state) => state.data);
   const current = data?.current;
   const prev = data?.prev;
   const next = data?.next;
+
+  useEffect(() => {
+    fetchRecentGames();
+  }, []);
 
   return (
     <ScheduleListStyle>

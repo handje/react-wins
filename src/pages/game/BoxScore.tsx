@@ -2,7 +2,7 @@ import BoxScoreInfo from "@components/Game/BoxScore/BoxScoreInfo";
 import MainTable from "@components/Game/BoxScore/MainTable";
 import PlayerTable from "@components/Player/PlayerTable";
 import Loading from "@components/fallback/Loading";
-import { FilterGameBatterType, FilterGamePitcherType } from "@customTypes/boxScore";
+import { FilterGameBatterType, FilterGamePitcherType } from "@customTypes/game/boxScore";
 import { gameBatterHeaders, gamePitcherHeaders } from "@data/game/boxScoreHeaders";
 import { ArticleTitle } from "@styles/common.style";
 import { filterGameBatterData, filterGamePitcherData } from "@utils/filterBoxScoreData";

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Button from "./Common/Button";
-import Date from "./Common/Date";
-import Score from "./Common/Score";
-import Text from "./Common/Text";
+import Button from "../Common/Button";
+import Date from "../Common/Date";
+import Score from "../Common/Score";
+import Text from "../Common/Text";
 import Team from "./Team";
 
 interface ScheduleItemProps {

@@ -39,3 +39,5 @@ export type WholeScheduleType = {
   visitKey: string;
   visitScore: number;
 };
+
+export type TBroadcastTag = "tv" | "cmb" | "iptv" | "radio";

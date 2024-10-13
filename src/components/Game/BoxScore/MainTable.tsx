@@ -1,4 +1,4 @@
-import { EtcGames } from "@customTypes/boxScore";
+import { EtcGames } from "@customTypes/game/boxScore";
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useEffect, useState } from "react";
 import { useGameStore } from "store/actions/useGameStore";
