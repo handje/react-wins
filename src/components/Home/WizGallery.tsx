@@ -1,7 +1,9 @@
 import { api } from "@api/api";
 import Controller from "@components/common/Controller";
+import EmptyResult from "@components/fallback/EmptyResult";
 import { TPhoto } from "@customTypes/gallery";
 import { useEffect, useState } from "react";
+import { FaImage } from "react-icons/fa";
 import styled from "styled-components";
 import GallerySwiper from "./WizGallery/GallerySwiper";
 import GalleryTitle from "./WizGallery/GalleryTitle";
@@ -29,7 +31,11 @@ const WizGallery = () => {
   return (
     <StyledSection>
       <GalleryTitle />
-      <GallerySwiper gallery={gallery} />
+      {gallery.length > 0 ? (
+        <GallerySwiper gallery={gallery} />
+      ) : (
+        <EmptyResult icon={FaImage} msg="사진을 불러올 수 없습니다." height="650px" />
+      )}
       <Controller $isFull={false} title="더 많은 사진보기" path="/media/wizphoto" />
     </StyledSection>
   );

@@ -1,3 +1,4 @@
+import EmptyResult from "@components/fallback/EmptyResult";
 import React, { useEffect, useMemo, useState } from "react";
 import { PulseLoader } from "react-spinners";
 import { useHomeStore } from "store/actions/useHomeStore";
@@ -33,23 +34,18 @@ const RecentMatchList = () => {
     }
   }, [data]);
 
-  if (!filteredData) return null;
+  if (isLoading) return <PulseLoader />;
+  if (!filteredData) return <EmptyResult msg="최근 경기가 없습니다." />;
 
   return (
     <RecentMatchListStyle>
-      {isLoading ? (
-        <PulseLoader />
-      ) : (
-        <>
-          <MatchesHeader
-            recentGames={recentGames}
-            filteredData={filteredData}
-            currentIndex={currentIndex}
-            setCurrentIndex={setCurrentIndex}
-          />
-          <RecentMatchItem filteredData={filteredData} />
-        </>
-      )}
+      <MatchesHeader
+        recentGames={recentGames}
+        filteredData={filteredData}
+        currentIndex={currentIndex}
+        setCurrentIndex={setCurrentIndex}
+      />
+      <RecentMatchItem filteredData={filteredData} />
     </RecentMatchListStyle>
   );
 };

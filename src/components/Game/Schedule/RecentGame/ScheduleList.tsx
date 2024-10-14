@@ -1,3 +1,4 @@
+import EmptyResult from "@components/fallback/EmptyResult";
 import { useEffect } from "react";
 import { useHomeStore } from "store/actions/useHomeStore";
 import styled from "styled-components";
@@ -17,6 +18,7 @@ const ScheduleListStyle = styled.ul`
 const ScheduleList = () => {
   const fetchRecentGames = useHomeStore((state) => state.fetchRecentGames);
   const data = useHomeStore((state) => state.data);
+  const isError = useHomeStore((state) => state.isError);
   const scheduleOrder: TScheduleOrder[] = ["prev", "current", "next"];
 
   useEffect(() => {
@@ -25,9 +27,14 @@ const ScheduleList = () => {
 
   return (
     <ScheduleListStyle>
-      {scheduleOrder.map((order, idx) => (
-        <ScheduleItem key={idx} data={data ? data[order] : null} $isCurrent={order === "current"} />
-      ))}
+      {isError ? (
+        <EmptyResult />
+      ) : (
+        data &&
+        scheduleOrder.map((order, idx) => (
+          <ScheduleItem key={idx} data={data[order] ?? null} $isCurrent={order === "current"} />
+        ))
+      )}
     </ScheduleListStyle>
   );
 };

@@ -1,4 +1,5 @@
 import { api } from "@api/api";
+import EmptyResult from "@components/fallback/EmptyResult";
 import { ArticleTitle } from "@styles/common.style";
 import { chartDate } from "@utils/date";
 import ReactEcharts from "echarts-for-react";
@@ -19,12 +20,16 @@ const StyledChart = styled(ReactEcharts)`
 const RankingChart = () => {
   const [teamRank, setTeamRank] = useState<TRankChart[]>([]);
   const groupY = ["1위", "2위", "3위", "4위", "5위", "6위", "7위", "8위", "9위", "10위"]; //y축
-
+  const [isError, setIsError] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await api("game/rank/periodteamrank");
-      data.list.sort((a: TRankChart, b: TRankChart) => Number(a.date) - Number(b.date));
-      setTeamRank(data.list);
+      try {
+        const { data } = await api("game/rank/periodteamrank");
+        data.list.sort((a: TRankChart, b: TRankChart) => Number(a.date) - Number(b.date));
+        setTeamRank(data.list);
+      } catch {
+        setIsError(true);
+      }
     };
     fetchData();
   }, []);
@@ -81,7 +86,11 @@ const RankingChart = () => {
   return (
     <article>
       <ArticleTitle>{"2024 시즌 팀 순위"}</ArticleTitle>
-      <StyledChart option={options} style={{ width: "100%", height: "400px" }} opts={{ renderer: "svg" }} />
+      {isError ? (
+        <EmptyResult height="400px" />
+      ) : (
+        <StyledChart option={options} style={{ width: "100%", height: "400px" }} opts={{ renderer: "svg" }} />
+      )}
     </article>
   );
 };

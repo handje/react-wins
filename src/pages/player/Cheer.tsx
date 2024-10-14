@@ -1,5 +1,6 @@
 import { api } from "@api/api";
 import CheerProfile from "@components/Cheer/CheerProfile";
+import EmptyResult from "@components/fallback/EmptyResult";
 import { TCheer } from "@customTypes/cheer";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -76,13 +77,22 @@ const Cheer = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0); // 활성화된 슬라이드 인덱스 관리
   const [cheerData, setCheerData] = useState<TCheer[]>([]);
+  const [isError, setIsError] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await api("player/cheerleader");
-      setCheerData(data.list);
+      try {
+        const { data } = await api("player/cheerleader");
+        setCheerData(data.list);
+      } catch {
+        setIsError(true);
+      }
     };
     fetchData();
   }, []);
+
+  if (isError) return <EmptyResult height="50vh" />;
+
   return (
     <>
       <Container>

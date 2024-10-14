@@ -1,4 +1,5 @@
 import { api } from "@api/api";
+import EmptyResult from "@components/fallback/EmptyResult";
 import { TTeamVS } from "@customTypes/game/teamRank";
 import { ArticleTitle } from "@styles/common.style";
 import { getVSinfo } from "@utils/filterData";
@@ -57,11 +58,15 @@ const StyledTr = styled.tr<{ $isActive?: boolean }>`
 
 const WinLose = () => {
   const [teamVs, setTeamVs] = useState<TTeamVS[]>([]);
-
+  const [isError, setIsError] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await api("game/rank/teamvs");
-      setTeamVs(data?.list);
+      try {
+        const { data } = await api("game/rank/teamvs");
+        setTeamVs(data?.list);
+      } catch {
+        setIsError(true);
+      }
     };
     fetchData();
   }, []);
@@ -69,38 +74,42 @@ const WinLose = () => {
   return (
     <article>
       <ArticleTitle>{"2024 시즌 팀 간 승패표"}</ArticleTitle>
-      <StyledTable>
-        <thead>
-          <StyledTr>
-            <th>
-              팀명
-              <br />
-              (승-패-무)
-            </th>
-            {teamRankingHeaders.map((team, colIndex) => (
-              <th key={colIndex}>{team[1]}</th>
-            ))}
-          </StyledTr>
-        </thead>
-        <tbody>
-          {teamRankingHeaders.map((row, rowIndex) => (
-            <StyledTr key={rowIndex} $isActive={rowIndex === 0}>
-              <td>{row[1]}</td>
-              {teamVs &&
-                teamRankingHeaders.map((col, colIndex) => {
-                  let result;
-                  if (rowIndex === colIndex) {
-                    result = "■";
-                  } else {
-                    const record = getVSinfo(teamVs, row[1], col[0]);
-                    result = `${record[0]}-${record[1]}-${record[2]}`;
-                  }
-                  return <td key={colIndex}>{result}</td>;
-                })}
+      {isError ? (
+        <EmptyResult />
+      ) : (
+        <StyledTable>
+          <thead>
+            <StyledTr>
+              <th>
+                팀명
+                <br />
+                (승-패-무)
+              </th>
+              {teamRankingHeaders.map((team, colIndex) => (
+                <th key={colIndex}>{team[1]}</th>
+              ))}
             </StyledTr>
-          ))}
-        </tbody>
-      </StyledTable>
+          </thead>
+          <tbody>
+            {teamRankingHeaders.map((row, rowIndex) => (
+              <StyledTr key={rowIndex} $isActive={rowIndex === 0}>
+                <td>{row[1]}</td>
+                {teamVs &&
+                  teamRankingHeaders.map((col, colIndex) => {
+                    let result;
+                    if (rowIndex === colIndex) {
+                      result = "■";
+                    } else {
+                      const record = getVSinfo(teamVs, row[1], col[0]);
+                      result = `${record[0]}-${record[1]}-${record[2]}`;
+                    }
+                    return <td key={colIndex}>{result}</td>;
+                  })}
+              </StyledTr>
+            ))}
+          </tbody>
+        </StyledTable>
+      )}
     </article>
   );
 };

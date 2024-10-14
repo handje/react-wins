@@ -7,11 +7,14 @@ export const useHomeStore = create<HomeStoreType>((set) => ({
   issue: null,
   ktWizTeamRank: null,
   isLoading: false,
+  isError: false,
   fetchRecentGames: async () => {
     set({ isLoading: true });
     try {
-      const data = await api("game/recentGames");
-      data && set({ data: data.data });
+      const data = await api("game/recentGams");
+      set({ data: data.data });
+    } catch {
+      set({ isError: true });
     } finally {
       set({ isLoading: false });
     }
