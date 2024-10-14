@@ -5,6 +5,7 @@ export type HomeStoreType = {
   issue: IssueType[] | null;
   ktWizTeamRank: TeamRankingType | null;
   isLoading: boolean;
+  isError: boolean;
   fetchRecentGames: () => void;
   fetchTeamRanking: () => void;
   fetchHotIssue: (count) => void;

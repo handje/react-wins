@@ -1,5 +1,4 @@
 import { api } from "@api/api";
-import dummyRecent from "@data/home/recentGames.json";
 import { HomeStoreType } from "store/types/homeStore";
 import { create } from "zustand";
 
@@ -8,15 +7,14 @@ export const useHomeStore = create<HomeStoreType>((set) => ({
   issue: null,
   ktWizTeamRank: null,
   isLoading: false,
+  isError: false,
   fetchRecentGames: async () => {
     set({ isLoading: true });
     try {
-      const data = await api("game/recentGames");
-      if (data) {
-        set({ data: data.data });
-      } else {
-        set({ data: dummyRecent.data });
-      }
+      const data = await api("game/recentGams");
+      set({ data: data.data });
+    } catch {
+      set({ isError: true });
     } finally {
       set({ isLoading: false });
     }
