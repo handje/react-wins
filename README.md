@@ -43,6 +43,10 @@
 <br/>
 
 ## ✨ 주요 기능
+(api 제공이 종료 될 경우 배포 화면은 보이지 않을 수 있습니다. 아래 링크의 영상을 참고해주세요)
+<br/>
+[구현영상](https://drive.google.com/file/d/16ElrU0yoOUx7R-Z3XWYXSSlBMHsK5FSy/view?usp=sharing)
+
 ### 1. 홈화면
 - 하이라이트 소식
 - 최근 경기 정보
