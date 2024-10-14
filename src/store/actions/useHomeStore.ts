@@ -11,7 +11,7 @@ export const useHomeStore = create<HomeStoreType>((set) => ({
   fetchRecentGames: async () => {
     set({ isLoading: true });
     try {
-      const data = await api("game/recentGams");
+      const data = await api("game/recentGames");
       set({ data: data.data });
     } catch {
       set({ isError: true });
