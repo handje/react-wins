@@ -1,4 +1,5 @@
 import { api } from "@api/api";
+import dummyRecent from "@data/home/recentGames.json";
 import { HomeStoreType } from "store/types/homeStore";
 import { create } from "zustand";
 
@@ -11,7 +12,11 @@ export const useHomeStore = create<HomeStoreType>((set) => ({
     set({ isLoading: true });
     try {
       const data = await api("game/recentGames");
-      data && set({ data: data.data });
+      if (data) {
+        set({ data: data.data });
+      } else {
+        set({ data: dummyRecent.data });
+      }
     } finally {
       set({ isLoading: false });
     }

@@ -1,3 +1,4 @@
+import EmptyResult from "@components/fallback/EmptyResult";
 import MediaList from "@components/Media/MediaList";
 import SkeletonList from "@components/Media/SkeletonList";
 import { useEffect } from "react";
@@ -12,6 +13,7 @@ const MediaListPage = () => {
   const mediaList = useMediaStore((state) => state.mediaList);
   const setMediaList = useMediaStore((state) => state.setMediaList);
   const isLoading = useMediaStore((state) => state.isListLoading);
+  const isError = useMediaStore((state) => state.isError);
 
   let url;
   if (mediaType === "wiznews") {
@@ -30,6 +32,9 @@ const MediaListPage = () => {
     resetPageNum();
   }, [mediaType]);
 
-  return <>{isLoading ? <SkeletonList /> : <MediaList mediaList={mediaList} />}</>;
+  if (isLoading) return <SkeletonList />;
+  if (isError) return <EmptyResult height="50vh" />;
+
+  return <MediaList mediaList={mediaList} />;
 };
 export default MediaListPage;

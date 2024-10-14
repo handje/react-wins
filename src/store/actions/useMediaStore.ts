@@ -11,6 +11,7 @@ export const useMediaStore = create<MediaStoreType>((set) => ({
   artcPrevSeq: undefined,
   isListLoading: false,
   isDetailLoading: false,
+  isError: false,
   setPageNum: (num) => set({ pageNum: num }),
   resetPageNum: () => set({ pageNum: 1 }),
   setMediaList: async (url) => {
@@ -18,6 +19,8 @@ export const useMediaStore = create<MediaStoreType>((set) => ({
       set({ isListLoading: true });
       const { data } = await api(url);
       data && set({ mediaList: data.list });
+    } catch {
+      set({ isError: true });
     } finally {
       set({ isListLoading: false });
     }
@@ -27,6 +30,8 @@ export const useMediaStore = create<MediaStoreType>((set) => ({
       set({ isDetailLoading: true });
       const { data } = await api(url);
       data && set({ media: data.article });
+    } catch {
+      set({ isError: true });
     } finally {
       set({ isDetailLoading: false });
     }
