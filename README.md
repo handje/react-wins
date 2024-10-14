@@ -120,10 +120,9 @@
 
 ## 🖇️ 바로 가기
 
-- <a href="react-wins-tau.vercel.app/" target="_blank">배포 URL</a>
+- <a href="https://react-wins-tau.vercel.app/" target="_blank">배포 URL</a>
 - <a href="https://www.notion.so/KT-wins-90cc46746df84f51a7afe0a2f2a9b159" target="_blank">팀 노션페이지</a>
 - <a href="https://www.figma.com/design/cYvtDnXxX6l9mmYBOi2XkN/Ktwiz?node-id=0-1&node-type=canvas&t=ZIsWWlR0UBO7BNCe-0" target="_blank">화면정의서</a>
-- <a href="https://documenter.getpostman.com/view/7741328/2sAXjRUok8#2deb2884-0aa2-46d9-a01d-dd9dda4b161e" target="_blank">API 명세서</a>
 - <a href="https://github.com/project-wins/react-ktwiz" target="_blank">organization 레포지토리</a>
 - <a href="https://github.com/project-wins/react-wins?tab=readme-ov-file#-%ED%8C%80%EC%9B%90-%EC%86%8C%EA%B0%9C-%EB%B0%8F-%EA%B0%9C%EB%B0%9C-%EB%82%B4%EC%9A%A9" target="_blank">팀원 소개 및 개발 내용</a>
 <br/>
