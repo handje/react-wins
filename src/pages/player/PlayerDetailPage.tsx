@@ -9,8 +9,7 @@ const PlayerDetailPage = () => {
   const searchParams = new URLSearchParams(location.search);
   const { playerType } = useParams();
   const pcode = searchParams.get("pcode");
-  const { isError, isLoading } = usePlayerDetailQuery(playerType ?? "coach", pcode ?? "");
-  if (isError && isLoading) return <></>;
+  usePlayerDetailQuery(playerType ?? "coach", pcode ?? "");
 
   return (
     <>

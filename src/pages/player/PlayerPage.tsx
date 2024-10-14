@@ -1,4 +1,5 @@
 import PlayerCard from "@components/Player/PlayerCard";
+import EmptyResult from "@components/fallback/EmptyResult";
 import ListSkeleton from "@components/fallback/player/ListSkeleton";
 import { PlayerContentsWrapper } from "@styles/PlayerTable.style";
 import { usePlayerListQuery } from "hooks/usePlayer";
@@ -11,7 +12,7 @@ const PlayerPage = () => {
 
   const { isError, isLoading } = usePlayerListQuery(playerType ?? "coach");
 
-  if (isError && isLoading) return <></>;
+  if (isError) return <EmptyResult height="50vh" />;
 
   return (
     <>
