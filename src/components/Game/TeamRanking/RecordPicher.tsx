@@ -1,8 +1,9 @@
-import ArticleTitle from "@components/common/ArticleTitle";
+import { api } from "@api/api";
 import Table from "@components/common/Table";
-import { TPicheringRank } from "@customTypes/teamRank";
+import EmptyResult from "@components/fallback/EmptyResult";
+import { TPicheringRank } from "@customTypes/game/teamRank";
+import { ArticleTitle } from "@styles/common.style";
 import { filterData } from "@utils/filterData";
-import { api } from "api/api";
 import { useEffect, useState } from "react";
 
 export const teamRankingHeaders: [string, string][] = [
@@ -24,21 +25,29 @@ export const teamRankingHeaders: [string, string][] = [
 ];
 const RecordPicher = () => {
   const [pitchers, setPitchers] = useState<TPicheringRank[]>([]);
-
+  const [isError, setIsError] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await api("game/rank/pitching");
-      const ranking = data?.list?.map((team: TPicheringRank) => filterData(team, teamRankingHeaders));
-      setPitchers(ranking);
+      try {
+        const { data } = await api("game/rank/pitching");
+        const ranking = data?.list?.map((team: TPicheringRank) => filterData(team, teamRankingHeaders));
+        setPitchers(ranking);
+      } catch {
+        setIsError(true);
+      }
     };
     fetchData();
   }, []);
 
   return (
     <article>
-      <ArticleTitle title="2024 시즌 팀 투수 기록" />
-      {pitchers.length > 0 && (
-        <Table<TPicheringRank> resData={pitchers} headers={teamRankingHeaders.map((item) => item[1])} />
+      <ArticleTitle>{"2024 시즌 팀 투수 기록"}</ArticleTitle>
+      {isError ? (
+        <EmptyResult />
+      ) : (
+        pitchers.length > 0 && (
+          <Table<TPicheringRank> resData={pitchers} headers={teamRankingHeaders.map((item) => item[1])} />
+        )
       )}
     </article>
   );

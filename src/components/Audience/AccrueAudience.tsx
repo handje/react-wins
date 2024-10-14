@@ -1,9 +1,7 @@
-import ArticleTitle from "@components/common/ArticleTitle";
+import { Tcrowd } from "@customTypes/game/Crowd";
+import { ArticleTitle } from "@styles/common.style.ts";
 import ReactECharts from "echarts-for-react";
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { api } from "../../api/api.ts";
-import { Tcrowd } from "../../types/Crowd";
 
 const StyledArticle = styled.article`
   width: 100%;
@@ -11,23 +9,13 @@ const StyledArticle = styled.article`
   margin-top: 45px;
 `;
 
-const AccrueAudience = () => {
-  const [crowdData, setCrowdData] = useState<Tcrowd[]>([]);
+const AccrueAudience = ({ crowdData }: { crowdData: Tcrowd[] }) => {
+  const teamOrder = ["KT", "LG", "삼성", "두산", "KIA", "롯데", "SSG", "키움", "한화", "NC"];
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await api("game/rank/crowd?gyear=2024");
+  const sortedData = teamOrder.map((team) => crowdData?.find((item: Tcrowd) => item.teamName === team));
 
-      const teamOrder = ["KT", "LG", "삼성", "두산", "KIA", "롯데", "SSG", "키움", "한화", "NC"];
-
-      const sortedData = teamOrder.map((team) => data.list.find((item: Tcrowd) => item.teamName === team));
-      setCrowdData(sortedData);
-    };
-    fetchData();
-  }, []);
-
-  const teams = crowdData.map((item) => item?.teamName);
-  const values = crowdData.map((item) => item?.crowd || 0);
+  const teams = sortedData.map((item) => item?.teamName);
+  const values = sortedData.map((item) => item?.crowd || 0);
 
   const options = {
     tooltip: {
@@ -75,7 +63,7 @@ const AccrueAudience = () => {
 
   return (
     <StyledArticle>
-      <ArticleTitle title="2024 시즌 누적관중" />
+      <ArticleTitle>{"2024 시즌 누적관중"}</ArticleTitle>
       <div style={{ border: "1px solid black", width: "100%", height: "350px" }}>
         <ReactECharts option={options} style={{ width: "100%", height: "300px" }} opts={{ renderer: "svg" }} />
       </div>

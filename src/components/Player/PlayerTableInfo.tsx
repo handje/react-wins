@@ -13,7 +13,7 @@ import {
   pitcherHeaders2,
   pitRecentHeaders,
   pitTotalHeaders,
-} from "@data/playerHeaders";
+} from "@data/player/playerHeaders";
 import { TableMargin } from "@styles/PlayerTable.style";
 import { filterData } from "@utils/filterData";
 import { filterPitRecentData } from "@utils/fiterPlayerData";

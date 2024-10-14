@@ -1,8 +1,6 @@
-import ArticleTitle from "@components/common/ArticleTitle";
-import { Tcrowd } from "@customTypes/Crowd";
-import { useEffect, useState } from "react";
+import { Tcrowd } from "@customTypes/game/Crowd";
+import { ArticleTitle } from "@styles/common.style.ts";
 import styled from "styled-components";
-import { api } from "../../api/api.ts";
 
 const TableWrapper = styled.div`
   max-width: 1200px;
@@ -11,34 +9,34 @@ const TableWrapper = styled.div`
 
 const Table = styled.table`
   width: 100%;
-  table-layout: fixed; /* 열의 너비를 균등하게 설정 */
+  table-layout: fixed;
 `;
 
 const TableHeader = styled.thead`
   background-color: #f5f5f5;
   th {
     padding: 10px;
-    text-align: center; /* 내용 중앙 정렬 */
+    text-align: center;
     border: 1px solid #cfcfcf;
     border-top: 2px solid red;
-    font-size: 15px; /* 글씨 크기 설정 */
-    color: #5b5a5a; /* 글씨 색상 설정 */
+    font-size: 15px;
+    color: #5b5a5a;
   }
 `;
 
 const TableBody = styled.tbody`
   td {
     padding: 10px;
-    text-align: center; /* 수평 중앙 정렬 */
-    vertical-align: middle; /* 수직 중앙 정렬 */
+    text-align: center;
+    vertical-align: middle;
     border: 1px solid #cfcfcf;
-    font-size: 12px; /* 글씨 크기 설정 */
-    color: #5b5a5a; /* 글씨 색상 설정 */
+    font-size: 12px;
+    color: #5b5a5a;
   }
   tr {
-    border: 1px solid #cfcfcf; /* 각 행 사이에 줄 추가 */
-    font-size: 12px; /* 글씨 크기 설정 */
-    color: #5b5a5a; /* 글씨 색상 설정 */
+    border: 1px solid #cfcfcf;
+    font-size: 12px;
+    color: #5b5a5a;
   }
 `;
 
@@ -54,20 +52,11 @@ const StyledArticle = styled.article`
   height: 435px;
 `;
 
-const AudienceRecord = () => {
-  const [crowdData, setCrowdData] = useState<Tcrowd[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await api("game/rank/crowd?gyear=2024");
-      setCrowdData(data.list);
-    };
-    fetchData();
-  }, []);
+const AudienceRecord = ({ crowdData }: { crowdData: Tcrowd[] }) => {
   return (
     <>
       <StyledArticle>
-        <ArticleTitle title="2024 시즌 관중기록" />
+        <ArticleTitle>{"2024 시즌 관중기록"}</ArticleTitle>
         <TableWrapper>
           <Table>
             <TableHeader>

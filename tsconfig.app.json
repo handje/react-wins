@@ -28,7 +28,8 @@
       "@styles/*": ["styles/*"],
       "@assets/*": ["assets/*"],
       "@customTypes/*": ["types/*"],
-      "@data/*": ["data/*"]
+      "@data/*": ["data/*"],
+      "@api/*": ["api/*"]
     }
   },
   "include": ["src"]

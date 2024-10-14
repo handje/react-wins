@@ -1,3 +1,5 @@
+import { useNavigate, useParams } from "react-router-dom";
+import { useMediaStore } from "store/actions/useMediaStore";
 import styled from "styled-components";
 
 const NavigationWrapper = styled.nav`
@@ -25,11 +27,32 @@ const NavigationBtn = styled.button`
 `;
 
 const NavigationControls = () => {
+  const { mediaType } = useParams();
+  const artcPrevSeq = useMediaStore((state) => state.artcPrevSeq);
+  const artcNextSeq = useMediaStore((state) => state.artcNextSeq);
+  const navigate = useNavigate();
+
   return (
     <NavigationWrapper>
-      <NavigationBtn className="prev">이전</NavigationBtn>
-      <NavigationBtn className="next">다음</NavigationBtn>
-      <NavigationBtn className="list">목록보기</NavigationBtn>
+      <NavigationBtn
+        disabled={!artcPrevSeq && artcPrevSeq === 0}
+        className="prev"
+        onClick={() => {
+          navigate(`../${mediaType}/${artcPrevSeq}`);
+        }}>
+        이전
+      </NavigationBtn>
+      <NavigationBtn
+        disabled={!artcNextSeq && artcNextSeq === 0}
+        className="next"
+        onClick={() => {
+          navigate(`../${mediaType}/${artcNextSeq}`);
+        }}>
+        다음
+      </NavigationBtn>
+      <NavigationBtn className="list" onClick={() => navigate(`../${mediaType}`)}>
+        목록보기
+      </NavigationBtn>
     </NavigationWrapper>
   );
 };

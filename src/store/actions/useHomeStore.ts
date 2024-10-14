@@ -1,4 +1,4 @@
-import { api } from "api/api";
+import { api } from "@api/api";
 import { HomeStoreType } from "store/types/homeStore";
 import { create } from "zustand";
 
@@ -6,9 +6,18 @@ export const useHomeStore = create<HomeStoreType>((set) => ({
   data: null,
   issue: null,
   ktWizTeamRank: null,
+  isLoading: false,
+  isError: false,
   fetchRecentGames: async () => {
-    const data = await api("game/recentGames");
-    data && set({ data: data.data });
+    set({ isLoading: true });
+    try {
+      const data = await api("game/recentGams");
+      set({ data: data.data });
+    } catch {
+      set({ isError: true });
+    } finally {
+      set({ isLoading: false });
+    }
   },
   fetchTeamRanking: async () => {
     const data = await api("game/ktwizteamrank");

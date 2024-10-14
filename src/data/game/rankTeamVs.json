@@ -7,7 +7,7 @@
         "teamCode": "HH",
         "teamName": "한화",
         "vsTeamCode": "HT",
-        "win": 4
+        "win": 5
       },
       {
         "drawn": 0,
@@ -35,7 +35,7 @@
       },
       {
         "drawn": 2,
-        "lose": 9,
+        "lose": 10,
         "teamCode": "HH",
         "teamName": "한화",
         "vsTeamCode": "NC",
@@ -51,7 +51,7 @@
       },
       {
         "drawn": 0,
-        "lose": 5,
+        "lose": 6,
         "teamCode": "HH",
         "teamName": "한화",
         "vsTeamCode": "SK",
@@ -75,7 +75,7 @@
       },
       {
         "drawn": 0,
-        "lose": 4,
+        "lose": 5,
         "teamCode": "HT",
         "teamName": "KIA",
         "vsTeamCode": "HH",
@@ -103,7 +103,7 @@
         "teamCode": "HT",
         "teamName": "KIA",
         "vsTeamCode": "LT",
-        "win": 6
+        "win": 7
       },
       {
         "drawn": 0,
@@ -111,7 +111,7 @@
         "teamCode": "HT",
         "teamName": "KIA",
         "vsTeamCode": "NC",
-        "win": 11
+        "win": 12
       },
       {
         "drawn": 1,
@@ -215,7 +215,7 @@
         "teamCode": "KT",
         "teamName": "KT",
         "vsTeamCode": "WO",
-        "win": 12
+        "win": 14
       },
       {
         "drawn": 0,
@@ -279,7 +279,7 @@
         "teamCode": "LG",
         "teamName": "LG",
         "vsTeamCode": "SS",
-        "win": 6
+        "win": 7
       },
       {
         "drawn": 0,
@@ -287,7 +287,7 @@
         "teamCode": "LG",
         "teamName": "LG",
         "vsTeamCode": "WO",
-        "win": 5
+        "win": 6
       },
       {
         "drawn": 0,
@@ -299,7 +299,7 @@
       },
       {
         "drawn": 1,
-        "lose": 6,
+        "lose": 7,
         "teamCode": "LT",
         "teamName": "롯데",
         "vsTeamCode": "HT",
@@ -327,11 +327,11 @@
         "teamCode": "LT",
         "teamName": "롯데",
         "vsTeamCode": "NC",
-        "win": 7
+        "win": 9
       },
       {
         "drawn": 1,
-        "lose": 6,
+        "lose": 7,
         "teamCode": "LT",
         "teamName": "롯데",
         "vsTeamCode": "OB",
@@ -367,11 +367,11 @@
         "teamCode": "NC",
         "teamName": "NC",
         "vsTeamCode": "HH",
-        "win": 9
+        "win": 10
       },
       {
         "drawn": 0,
-        "lose": 11,
+        "lose": 12,
         "teamCode": "NC",
         "teamName": "NC",
         "vsTeamCode": "HT",
@@ -395,7 +395,7 @@
       },
       {
         "drawn": 0,
-        "lose": 7,
+        "lose": 9,
         "teamCode": "NC",
         "teamName": "NC",
         "vsTeamCode": "LT",
@@ -403,7 +403,7 @@
       },
       {
         "drawn": 0,
-        "lose": 11,
+        "lose": 12,
         "teamCode": "NC",
         "teamName": "NC",
         "vsTeamCode": "OB",
@@ -411,7 +411,7 @@
       },
       {
         "drawn": 0,
-        "lose": 4,
+        "lose": 5,
         "teamCode": "NC",
         "teamName": "NC",
         "vsTeamCode": "SK",
@@ -471,7 +471,7 @@
         "teamCode": "OB",
         "teamName": "두산",
         "vsTeamCode": "LT",
-        "win": 6
+        "win": 7
       },
       {
         "drawn": 0,
@@ -479,7 +479,7 @@
         "teamCode": "OB",
         "teamName": "두산",
         "vsTeamCode": "NC",
-        "win": 11
+        "win": 12
       },
       {
         "drawn": 0,
@@ -511,7 +511,7 @@
         "teamCode": "SK",
         "teamName": "SSG",
         "vsTeamCode": "HH",
-        "win": 5
+        "win": 6
       },
       {
         "drawn": 0,
@@ -551,7 +551,7 @@
         "teamCode": "SK",
         "teamName": "SSG",
         "vsTeamCode": "NC",
-        "win": 4
+        "win": 5
       },
       {
         "drawn": 0,
@@ -575,7 +575,7 @@
         "teamCode": "SK",
         "teamName": "SSG",
         "vsTeamCode": "WO",
-        "win": 11
+        "win": 12
       },
       {
         "drawn": 0,
@@ -603,7 +603,7 @@
       },
       {
         "drawn": 1,
-        "lose": 6,
+        "lose": 7,
         "teamCode": "SS",
         "teamName": "삼성",
         "vsTeamCode": "LG",
@@ -667,7 +667,7 @@
       },
       {
         "drawn": 0,
-        "lose": 12,
+        "lose": 14,
         "teamCode": "WO",
         "teamName": "키움",
         "vsTeamCode": "KT",
@@ -675,7 +675,7 @@
       },
       {
         "drawn": 0,
-        "lose": 5,
+        "lose": 6,
         "teamCode": "WO",
         "teamName": "키움",
         "vsTeamCode": "LG",
@@ -707,7 +707,7 @@
       },
       {
         "drawn": 0,
-        "lose": 11,
+        "lose": 12,
         "teamCode": "WO",
         "teamName": "키움",
         "vsTeamCode": "SK",

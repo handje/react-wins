@@ -1,11 +1,11 @@
-import { FilterScoreboardType } from "@customTypes/boxScore";
+import ControllBtn from "@components/Game/Common/ControllButton";
+import Logo from "@components/Game/Common/Logo";
+import { FilterScoreboardType } from "@customTypes/game/boxScore";
 import { stringDate } from "@utils/date";
 import { filterScoreboardData } from "@utils/filterBoxScoreData";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { useGameStore } from "store/actions/useGameStore";
 import styled from "styled-components";
-import ControllBtn from "../Common/ControllButton";
-import Logo from "../Common/Logo";
 import BoxTable from "./BoxTable";
 
 const BoxScoreWrapper = styled.div`

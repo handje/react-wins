@@ -1,10 +1,10 @@
 import whiteLogo from "@assets/images/whiteLogo.svg";
+import Container from "@components/Home/Common/Container";
+import Description from "@components/Home/Common/Description";
+import Image from "@components/Home/Common/Image";
+import Shortcut from "@components/Home/Common/Shortcut";
+import Text from "@components/Home/Common/Text";
 import styled from "styled-components";
-import Container from "../Common/Container";
-import Description from "../Common/Description";
-import Image from "../Common/Image";
-import Shortcut from "../Common/Shortcut";
-import Text from "../Common/Text";
 
 const StoreStyle = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const Store = () => {
     <Container
       to="https://www.ktwizstore.co.kr/"
       target="_blank"
-      $bgImage="https://cdn.pixabay.com/photo/2019/05/06/03/45/baseball-4182179_1280.jpg">
+      $bgImage="https://www.ktwiz.co.kr/v2/imgs/dummy/main/img-banner-store@2x.png">
       <StoreStyle>
         <Image src={whiteLogo} alt="logo" $maxWidth="124px" $marginBottom="5px" />
         <Text $marginBottom="20px" $fontSize="20px" $fontWeight="300" $color="#fff" text="공식 온라인 스토어" />

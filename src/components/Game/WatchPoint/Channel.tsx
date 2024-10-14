@@ -1,7 +1,7 @@
+import { ArticleTitle } from "@styles/common.style";
 import { useWatchPointStore } from "store/actions/useWatchPointStore";
 import styled from "styled-components";
 import Description from "./Description";
-import Title from "./Title";
 
 const ChannelStyle = styled.div`
   width: 100%;
@@ -13,7 +13,7 @@ const Channel = () => {
   const schedule = useWatchPointStore((state) => state.schedule);
   return (
     <ChannelStyle>
-      <Title title="중계 채널" $marginBottom="20px;" />
+      <ArticleTitle>{"중계 채널"}</ArticleTitle>
       <Description desc={`${schedule?.current.broadcast}`} isChannel />
     </ChannelStyle>
   );

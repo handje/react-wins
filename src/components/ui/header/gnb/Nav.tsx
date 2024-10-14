@@ -5,10 +5,9 @@ import BottomMenu from "./BottomMenu";
 import TopMenu from "./TopMenu";
 
 const MainNavStyle = styled.nav<{ $isShowNav: boolean }>`
-  display: ${(props) => props.$isShowNav && "grid"};
-  grid-template-columns: ${(props) => props.$isShowNav && "repeat(8, 1fr)"};
-  text-align: center;
-  width: 850px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
 `;
 
 const Nav = ({ $isShowNav }: NavEventType) => {

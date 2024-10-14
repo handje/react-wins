@@ -28,3 +28,9 @@ export type NavType = {
 export type TabType = {
   tab: string;
 };
+
+export interface ILayoutInfo {
+  title: string;
+  desc: string;
+  tabs?: { name: string; path: string }[];
+}
