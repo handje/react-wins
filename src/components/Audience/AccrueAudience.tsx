@@ -1,8 +1,6 @@
-import { api } from "@api/api";
 import { Tcrowd } from "@customTypes/game/Crowd";
 import { ArticleTitle } from "@styles/common.style.ts";
 import ReactECharts from "echarts-for-react";
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const StyledArticle = styled.article`
@@ -11,23 +9,13 @@ const StyledArticle = styled.article`
   margin-top: 45px;
 `;
 
-const AccrueAudience = () => {
-  const [crowdData, setCrowdData] = useState<Tcrowd[]>([]);
+const AccrueAudience = ({ crowdData }: { crowdData: Tcrowd[] }) => {
+  const teamOrder = ["KT", "LG", "삼성", "두산", "KIA", "롯데", "SSG", "키움", "한화", "NC"];
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await api("game/rank/crowd?gyear=2024");
+  const sortedData = teamOrder.map((team) => crowdData?.find((item: Tcrowd) => item.teamName === team));
 
-      const teamOrder = ["KT", "LG", "삼성", "두산", "KIA", "롯데", "SSG", "키움", "한화", "NC"];
-
-      const sortedData = teamOrder.map((team) => data.list.find((item: Tcrowd) => item.teamName === team));
-      setCrowdData(sortedData);
-    };
-    fetchData();
-  }, []);
-
-  const teams = crowdData.map((item) => item?.teamName);
-  const values = crowdData.map((item) => item?.crowd || 0);
+  const teams = sortedData.map((item) => item?.teamName);
+  const values = sortedData.map((item) => item?.crowd || 0);
 
   const options = {
     tooltip: {
