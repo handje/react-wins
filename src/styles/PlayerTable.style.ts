@@ -24,7 +24,7 @@ export const TableCell = styled.td`
 
 export const PlayerContentsWrapper = styled.section`
   width: 100%;
-  padding: 25px 0;
+  padding-bottom: 25px;
   overflow-x: hidden;
 `;
 
