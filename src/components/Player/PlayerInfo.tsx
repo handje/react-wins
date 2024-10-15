@@ -4,7 +4,6 @@ import { stringToDate } from "@utils/date";
 import { FaChevronRight } from "react-icons/fa6";
 import { usePlayerStore } from "store/actions/usePlayerStore";
 import styled from "styled-components";
-
 const InfoArti = styled.article`
   width: 100%;
   position: relative;
@@ -110,63 +109,57 @@ const PlayerInfo = ({ playerType }: { playerType: string }) => {
   return (
     <>
       <InfoArti>
-        <div>
-          {!player ? (
-            <InfoImg src={playerSkeleton} />
-          ) : (
-            <>
-              <InfoImg src={player?.playerPrvwImg2} />
+        <>
+          <InfoImg src={player?.playerPrvwImg2 || playerSkeleton} />
+          <dl>
+            <InfoDt>
+              <InfoNumber>No. {player?.backnum}</InfoNumber>
+              {player?.playerName}
+              <InfoEng>{player?.engName}</InfoEng>
+            </InfoDt>
+            <InfoListWrapper>
+              <ul>
+                {infoList.map((info, index) => (
+                  <li key={index}>
+                    <dl>
+                      <InfoListDt>{info.title}</InfoListDt>
+                      <InfoListDd>{info.text}</InfoListDd>
+                    </dl>
+                  </li>
+                ))}
+              </ul>
+              <PictureButton href={`/media/photos/1?searchWord=${player?.playerName}&search.sort=400`}>
+                {playerType !== "coach" && "선수 "}사진 보기 <FaChevronRight fontSize={"0.8em"} />
+              </PictureButton>
+            </InfoListWrapper>
+          </dl>
+          {playerType === "pitcher" && (
+            <PlayerRecord>
               <dl>
-                <InfoDt>
-                  <InfoNumber>No. {player?.backnum}</InfoNumber>
-                  {player?.playerName}
-                  <InfoEng>{player?.engName}</InfoEng>
-                </InfoDt>
-                <InfoListWrapper>
-                  <ul>
-                    {infoList.map((info, index) => (
-                      <li key={index}>
-                        <dl>
-                          <InfoListDt>{info.title}</InfoListDt>
-                          <InfoListDd>{info.text}</InfoListDd>
-                        </dl>
-                      </li>
-                    ))}
-                  </ul>
-                  <PictureButton href={`/media/photos/1?searchWord=${player?.playerName}&search.sort=400`}>
-                    {playerType !== "coach" && "선수 "}사진 보기 <FaChevronRight fontSize={"0.8em"} />
-                  </PictureButton>
-                </InfoListWrapper>
+                <PlayerRecordDt>{player?.gyear} 정규리그 성적 : </PlayerRecordDt>
+                <PlayerRecordDd>
+                  평균자책점 {pitcherSeasonSummary ? pitcherSeasonSummary.era : "-"} /{" "}
+                  {pitcherSeasonSummary ? pitcherSeasonSummary.w : "-"} 승 /{" "}
+                  {pitcherSeasonSummary ? pitcherSeasonSummary.l : "-"} 패 /{" "}
+                  {pitcherSeasonSummary ? pitcherSeasonSummary.sv : "-"} 세이브
+                </PlayerRecordDd>
               </dl>
-              {playerType === "pitcher" && (
-                <PlayerRecord>
-                  <dl>
-                    <PlayerRecordDt>{player?.gyear} 정규리그 성적 : </PlayerRecordDt>
-                    <PlayerRecordDd>
-                      평균자책점 {pitcherSeasonSummary ? pitcherSeasonSummary.era : "-"} /{" "}
-                      {pitcherSeasonSummary ? pitcherSeasonSummary.w : "-"} 승 /{" "}
-                      {pitcherSeasonSummary ? pitcherSeasonSummary.l : "-"} 패 /{" "}
-                      {pitcherSeasonSummary ? pitcherSeasonSummary.sv : "-"} 세이브
-                    </PlayerRecordDd>
-                  </dl>
-                </PlayerRecord>
-              )}
-              {(playerType === "catcher" || playerType === "infielder" || playerType === "outfielder") && (
-                <PlayerRecord>
-                  <dl>
-                    <PlayerRecordDt>{player?.gyear} 정규리그 성적 : </PlayerRecordDt>
-                    <PlayerRecordDd>
-                      타율 {hitterSeasonSummary ? hitterSeasonSummary.hra : "-"} / 안타{" "}
-                      {hitterSeasonSummary ? hitterSeasonSummary.hit : "-"} / 타점{" "}
-                      {hitterSeasonSummary ? hitterSeasonSummary.rbi : "-"} / 홈런{" "}
-                      {hitterSeasonSummary ? hitterSeasonSummary.hr : "-"}
-                    </PlayerRecordDd>
-                  </dl>
-                </PlayerRecord>
-              )}
-            </>
+            </PlayerRecord>
           )}
-        </div>
+          {(playerType === "catcher" || playerType === "infielder" || playerType === "outfielder") && (
+            <PlayerRecord>
+              <dl>
+                <PlayerRecordDt>{player?.gyear} 정규리그 성적 : </PlayerRecordDt>
+                <PlayerRecordDd>
+                  타율 {hitterSeasonSummary ? hitterSeasonSummary.hra : "-"} / 안타{" "}
+                  {hitterSeasonSummary ? hitterSeasonSummary.hit : "-"} / 타점{" "}
+                  {hitterSeasonSummary ? hitterSeasonSummary.rbi : "-"} / 홈런{" "}
+                  {hitterSeasonSummary ? hitterSeasonSummary.hr : "-"}
+                </PlayerRecordDd>
+              </dl>
+            </PlayerRecord>
+          )}
+        </>
       </InfoArti>
     </>
   );

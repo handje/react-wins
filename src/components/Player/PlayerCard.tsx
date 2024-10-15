@@ -1,4 +1,5 @@
 import { PlayerType } from "@customTypes/player";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const PlayerLi = styled.li`
@@ -16,7 +17,7 @@ const CardArti = styled.article`
   width: 100%;
 `;
 
-const CardDiv = styled.div`
+const CardDiv = styled(Link)`
   display: block;
   width: 100%;
   padding-bottom: 101.56%;
@@ -49,22 +50,18 @@ const CardNum = styled.span`
 
 const PlayerCard = ({ playerName, playerNum, imgSrc, href }: PlayerType) => {
   return (
-    <>
-      <PlayerLi>
-        <CardArti>
-          <a href={href}>
-            <CardDiv>
-              <CardImg src={imgSrc} alt="player img" />
-              <CardDetail>
-                <CardNum>{`No.${playerNum}`}</CardNum>
-                <br />
-                <span>{playerName}</span>
-              </CardDetail>
-            </CardDiv>
-          </a>
-        </CardArti>
-      </PlayerLi>
-    </>
+    <PlayerLi>
+      <CardArti>
+        <CardDiv to={href}>
+          <CardImg src={imgSrc} alt="player img" />
+          <CardDetail>
+            <CardNum>{`No.${playerNum}`}</CardNum>
+            <br />
+            <span>{playerName}</span>
+          </CardDetail>
+        </CardDiv>
+      </CardArti>
+    </PlayerLi>
   );
 };
 export default PlayerCard;
