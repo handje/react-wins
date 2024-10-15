@@ -63,6 +63,8 @@ const MainInnerStyle = styled.article<{ $hasPadding: boolean }>`
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const PageLayout = ({

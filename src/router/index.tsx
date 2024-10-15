@@ -103,15 +103,19 @@ export const router = createBrowserRouter([
 
       {
         path: "/player",
-        element: <PlayerLayout />,
         children: [
           {
-            path: ":playerType",
-            element: <PlayerPage />,
-          },
-          {
-            path: ":playerType/detail",
-            element: <PlayerDetailPage />,
+            element: <PlayerLayout />,
+            children: [
+              {
+                path: ":playerType",
+                element: <PlayerPage />,
+              },
+              {
+                path: ":playerType/detail",
+                element: <PlayerDetailPage />,
+              },
+            ],
           },
           {
             path: "cheer",
