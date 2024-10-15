@@ -1,5 +1,6 @@
 import vitddory from "@assets/images/vitddory.png";
-import RootLayout from "layouts/RootLayout";
+import Footer from "@components/ui/footer/Footer";
+import Header from "@components/ui/header/Header";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -40,14 +41,16 @@ const MoveBtn = styled(Link)`
 
 const ErrorPage = () => {
   return (
-    <RootLayout>
+    <>
+      <Header />
       <ErrorPageContainer>
         <img src={vitddory} />
         <h1>ERROR</h1>
         <p>PAGE NOT FOUND</p>
         <MoveBtn to="/">홈으로</MoveBtn>
       </ErrorPageContainer>
-    </RootLayout>
+      <Footer />
+    </>
   );
 };
 

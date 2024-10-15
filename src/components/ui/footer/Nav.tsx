@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const FooterNavStyle = styled.ul`
@@ -28,4 +27,4 @@ const Nav = () => {
     </FooterNavStyle>
   );
 };
-export default React.memo(Nav);
+export default Nav;

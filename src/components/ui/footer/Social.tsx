@@ -1,4 +1,3 @@
-import React from "react";
 import { FaFigma, FaGithub } from "react-icons/fa";
 import { RiNotionFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
@@ -43,7 +42,6 @@ const Social = () => {
       icon: <RiNotionFill />,
     },
   ];
-
   return (
     <SocialStyle>
       {socialList.map((social, index) => (
@@ -56,4 +54,4 @@ const Social = () => {
     </SocialStyle>
   );
 };
-export default React.memo(Social);
+export default Social;

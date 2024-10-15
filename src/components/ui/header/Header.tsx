@@ -1,12 +1,12 @@
 import useDetectScroll from "hooks/useDetectScroll";
-import React, { useState } from "react";
+import { useCallback, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Nav from "./gnb/Nav";
 import Logo from "./Logo";
 import Utils from "./Utils";
 
-const HeaderStyle = styled.header<{ $isShowNav: boolean; $path: string; $scrollHeight: number }>`
+const HeaderStyle = styled.header<{ $isShowNav: boolean; $path: string; $scrollHeight: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +18,7 @@ const HeaderStyle = styled.header<{ $isShowNav: boolean; $path: string; $scrollH
   z-index: 2;
   overflow: hidden;
   background-color: ${(props) =>
-    props.$isShowNav ? "#fff" : props.$path !== "/" ? "#000" : props.$scrollHeight > 100 ? "#000" : "transparent"};
+    props.$isShowNav ? "#fff" : props.$path !== "/" ? "#000" : props.$scrollHeight ? "#000" : "transparent"};
   transition:
     height 0.25s ease-in,
     background-color 0.25s ease-out;
@@ -45,20 +45,20 @@ const HeaderInnerStyle = styled.div<{ $isShowNav: boolean }>`
 const Header = () => {
   const $path = useLocation().pathname;
   const [$isShowNav, setIsShowNav] = useState(false);
-  const { $scrollHeight } = useDetectScroll();
+  const $scrollHeight = useDetectScroll();
 
-  const onMouseOverHandler = () => {
+  const onMouseEnterHandler = useCallback(() => {
     setIsShowNav(true);
-  };
+  }, []);
 
-  const onMouseOutHandler = () => {
+  const onMouseLeaveHandler = useCallback(() => {
     setIsShowNav(false);
-  };
+  }, []);
 
   return (
     <HeaderStyle
-      onMouseOver={onMouseOverHandler}
-      onMouseOut={onMouseOutHandler}
+      onMouseEnter={onMouseEnterHandler}
+      onMouseLeave={onMouseLeaveHandler}
       $isShowNav={$isShowNav}
       $path={$path}
       $scrollHeight={$scrollHeight}>
@@ -71,4 +71,6 @@ const Header = () => {
   );
 };
 
-export default React.memo(Header);
+export default Header;
+
+//
