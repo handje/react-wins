@@ -1,8 +1,7 @@
 import ScrollToTop from "@components/ScrollToTop";
 import Footer from "@components/ui/footer/Footer";
 import Header from "@components/ui/header/Header";
-import { ReactNode } from "react";
-import { Outlet, useRouteError } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 const BasicLayoutStyle = styled.div`
@@ -12,16 +11,15 @@ const BasicLayoutStyle = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const RootLayout = ({ children }: { children?: ReactNode }) => {
-  const error = useRouteError();
-
+const RootLayout = () => {
   return (
     <BasicLayoutStyle>
       <ScrollToTop />
       <Header />
-      {error ? children : <Outlet />}
+      <Outlet />
       <Footer />
     </BasicLayoutStyle>
   );
 };
+
 export default RootLayout;
