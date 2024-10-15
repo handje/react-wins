@@ -99,56 +99,58 @@ const Cheer = () => {
     fetchData();
   }, []);
 
-  if (isError) return <EmptyResult height="50vh" />;
-
   return (
     <PageLayout info={CheerInfo}>
-      <Container>
-        <MainSwiper
-          spaceBetween={10}
-          navigation={true}
-          thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
-          modules={[FreeMode, Navigation, Thumbs]}
-          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-          as={StyledButton}>
-          {cheerData.map((cheer, index) => (
-            <SwiperSlideStyled key={index}>
-              <CheerProfile
-                leaderPosition={cheer.leaderPosition}
-                leaderName={cheer.leaderName}
-                leaderEngName={cheer.leaderEngName}
-                leaderNickName={cheer.leaderNickName}
-                leaderHeight={cheer.leaderHeight}
-                leaderBloodGroups={cheer.leaderBloodGroups}
-                leaderHobby={cheer.leaderHobby}
-                leaderLikePlayer={cheer.leaderLikePlayer}
-                leaderMotto={cheer.leaderMotto}
-                titleImgPath={cheer.titleImgPath}
-              />
-            </SwiperSlideStyled>
-          ))}
-        </MainSwiper>
-        <ThumbnailSwiper
-          onSwiper={setThumbsSwiper}
-          spaceBetween={0}
-          slidesPerView={6}
-          freeMode={true}
-          watchSlidesProgress={true}
-          threshold={5}
-          modules={[FreeMode, Navigation, Thumbs]}>
-          {cheerData.map((cheer, index) => (
-            <SwiperSlideStyled key={index}>
-              {({ isActive }) => (
-                <SwiperSlideImage
-                  src={index === activeIndex ? cheer.thumbOnImgPath : cheer.thumbOffImgPath}
-                  alt={`${cheer.leaderName} thumbnail`}
-                  $isActive={isActive}
+      {isError ? (
+        <EmptyResult height="50vh" />
+      ) : (
+        <Container>
+          <MainSwiper
+            spaceBetween={10}
+            navigation={true}
+            thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+            modules={[FreeMode, Navigation, Thumbs]}
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+            as={StyledButton}>
+            {cheerData.map((cheer, index) => (
+              <SwiperSlideStyled key={index}>
+                <CheerProfile
+                  leaderPosition={cheer.leaderPosition}
+                  leaderName={cheer.leaderName}
+                  leaderEngName={cheer.leaderEngName}
+                  leaderNickName={cheer.leaderNickName}
+                  leaderHeight={cheer.leaderHeight}
+                  leaderBloodGroups={cheer.leaderBloodGroups}
+                  leaderHobby={cheer.leaderHobby}
+                  leaderLikePlayer={cheer.leaderLikePlayer}
+                  leaderMotto={cheer.leaderMotto}
+                  titleImgPath={cheer.titleImgPath}
                 />
-              )}
-            </SwiperSlideStyled>
-          ))}
-        </ThumbnailSwiper>
-      </Container>
+              </SwiperSlideStyled>
+            ))}
+          </MainSwiper>
+          <ThumbnailSwiper
+            onSwiper={setThumbsSwiper}
+            spaceBetween={0}
+            slidesPerView={6}
+            freeMode={true}
+            watchSlidesProgress={true}
+            threshold={5}
+            modules={[FreeMode, Navigation, Thumbs]}>
+            {cheerData.map((cheer, index) => (
+              <SwiperSlideStyled key={index}>
+                {({ isActive }) => (
+                  <SwiperSlideImage
+                    src={index === activeIndex ? cheer.thumbOnImgPath : cheer.thumbOffImgPath}
+                    alt={`${cheer.leaderName} thumbnail`}
+                    $isActive={isActive}
+                  />
+                )}
+              </SwiperSlideStyled>
+            ))}
+          </ThumbnailSwiper>
+        </Container>
+      )}
     </PageLayout>
   );
 };
