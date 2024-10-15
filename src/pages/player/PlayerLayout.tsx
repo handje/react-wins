@@ -10,7 +10,6 @@ const playerInfo = {
     { name: "포수", path: "catcher" },
     { name: "내야수", path: "infielder" },
     { name: "외야수", path: "outfielder" },
-    { name: "응원단", path: "cheer" },
   ],
 };
 const PlayerLayout = () => {
