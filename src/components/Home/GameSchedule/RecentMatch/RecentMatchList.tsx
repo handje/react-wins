@@ -1,5 +1,5 @@
 import EmptyResult from "@components/fallback/EmptyResult";
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { PulseLoader } from "react-spinners";
 import { useHomeStore } from "store/actions/useHomeStore";
 import styled from "styled-components";
@@ -21,8 +21,8 @@ const RecentMatchList = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const isLoading = useHomeStore((state) => state.isLoading);
 
-  const recentGames = useMemo(() => [data?.prev, data?.current, data?.next], [data]);
-  const filteredData = useMemo(() => recentGames[currentIndex], [recentGames, currentIndex]);
+  const recentGames = [data?.prev, data?.current, data?.next];
+  const filteredData = recentGames[currentIndex];
 
   useEffect(() => {
     fetchRecentGames();
@@ -36,7 +36,6 @@ const RecentMatchList = () => {
 
   if (isLoading) return <PulseLoader />;
   if (!filteredData) return <EmptyResult msg="최근 경기가 없습니다." />;
-
   return (
     <RecentMatchListStyle>
       <MatchesHeader
@@ -49,4 +48,4 @@ const RecentMatchList = () => {
     </RecentMatchListStyle>
   );
 };
-export default React.memo(RecentMatchList);
+export default RecentMatchList;

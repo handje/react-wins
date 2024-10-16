@@ -1,4 +1,5 @@
 import { HomeProps } from "@customTypes/home";
+import React from "react";
 import styled from "styled-components";
 
 interface TextProps extends HomeProps {
@@ -35,4 +36,4 @@ const Text = ({ text, $marginBottom, $fontSize, $color, $fontWeight, $textShadow
     </TextStyle>
   );
 };
-export default Text;
+export default React.memo(Text);
