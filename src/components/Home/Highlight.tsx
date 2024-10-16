@@ -17,6 +17,7 @@ const StyledImg = styled.img`
 `;
 const Highlight = () => {
   const [videoList, setVideoList] = useState<TVideo[]>([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await api("media/highlightlist?count=10");
@@ -25,11 +26,12 @@ const Highlight = () => {
     };
     fetchData();
   }, []);
+
   return (
     <StyledSection>
       <StyledImg src={video_title} />
       <VideoBox />
-      <VideoList videoList={videoList} />
+      {videoList.length > 0 && <VideoList videoList={videoList} />}
       <Controller $isFull={true} title="더 많은 영상보기" path="#" />
     </StyledSection>
   );
